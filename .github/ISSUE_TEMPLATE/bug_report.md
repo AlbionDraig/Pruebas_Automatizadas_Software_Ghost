@@ -17,7 +17,7 @@ assignees: ''
 ### **_Comportamiento actual:_**
 - Descripción del comportamiento actual.
 
-### **_Comportamiento  esperado: **
+### **_Comportamiento  esperado:_**
 - Descripción del comportamiento esperado.
 
 ### **_Pasos para reproducir el error:_**
