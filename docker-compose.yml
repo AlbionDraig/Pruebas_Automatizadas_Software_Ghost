@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  some-ghost:
+    image: ghost
+    container_name: some-ghost
+    environment:
+      - NODE_ENV=development
+      - url=http://localhost:8080
+    ports:
+      - "8080:2368"
