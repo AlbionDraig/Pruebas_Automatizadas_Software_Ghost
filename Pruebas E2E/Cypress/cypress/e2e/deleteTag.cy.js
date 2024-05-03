@@ -8,7 +8,7 @@ const { tagDelete } = require("../utilities/tag/deleteTag.cy");
 var url, user, password = "";
 var tagName, tagColor, tagDescription = "";
 
-describe('Scenario: Editar un Tag', () => {
+describe('Scenario: Eliminar un Tag', () => {
   beforeEach(() => {
     Cypress.on('uncaught:exception', (err, runnable) => {
       console.error('Uncaught exception', err);
