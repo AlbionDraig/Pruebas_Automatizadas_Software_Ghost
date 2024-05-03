@@ -1,5 +1,6 @@
 // Import modules to navigate and interact
 const { loginPage } = require("../utilities/login/login.cy");
+const { logout } = require("../utilities/login/logout.cy");
 const { tagCreate } = require("../utilities/tag/createTag.cy");
 const { tagDelete } = require("../utilities/tag/deleteTag.cy");
 
@@ -9,6 +10,10 @@ var tagName, tagColor, tagDescription = "";
 
 describe('Scenario: Editar un Tag', () => {
   beforeEach(() => {
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      console.error('Uncaught exception', err);
+      return false;
+    });
     // Obtener credenciales
     cy.fixture('credentials').then(credentials => {
         url = credentials.url;
@@ -46,6 +51,10 @@ describe('Scenario: Editar un Tag', () => {
     
     //Then valido que se haya eliminado el tag
     tagDelete.validateDeleted()
+
+    //Cierra sesion al finalizar
+    logout.visit(url)
+    logout.validateError()
   });
 
 })

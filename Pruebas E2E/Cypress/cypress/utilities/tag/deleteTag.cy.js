@@ -20,6 +20,7 @@ export class TagDelete {
 
   confirm() {
     cy.get(this.confirmButton).click()
+    cy.get(this.confirmButton, { timeout: 10000 }).should('not.exist')
   }
 
   validateDeleted() {
