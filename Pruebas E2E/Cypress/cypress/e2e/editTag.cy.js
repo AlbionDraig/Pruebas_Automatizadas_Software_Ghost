@@ -2,13 +2,15 @@
 const { loginPage } = require("../utilities/login/login.cy");
 const { logout } = require("../utilities/login/logout.cy");
 const { tagCreate } = require("../utilities/tag/createTag.cy");
+const { tagEdit } = require("../utilities/tag/editTag.cy");
 const { tagDelete } = require("../utilities/tag/deleteTag.cy");
 
 // Parametrical variables
 var url, user, password = "";
 var tagName, tagColor, tagDescription = "";
+var tagName1, tagColor1, tagDescription1 = "";
 
-describe('Scenario: Eliminar un Tag', () => {
+describe('Scenario: Editar un Tag', () => {
   beforeEach(() => {
     Cypress.on('uncaught:exception', (err, runnable) => {
       console.error('Uncaught exception', err);
@@ -25,6 +27,9 @@ describe('Scenario: Eliminar un Tag', () => {
       tagName = tagInfo.name;
       tagColor = tagInfo.color;
       tagDescription = tagInfo.description;
+      tagName1 = tagInfo.name1;
+      tagColor1 = tagInfo.color1;
+      tagDescription1 = tagInfo.description1;
     });
   });
 
@@ -39,17 +44,18 @@ describe('Scenario: Eliminar un Tag', () => {
     tagCreate.visit();
     tagCreate.createTag(tagName,tagColor,tagDescription);
 
-    //When Hago click en el tag creado
+    //When Edito el Tag con "<tagName1>", "<tagColor1>", "<tagDescription1>"
+    tagEdit.visit();
+    tagEdit.editTag(tagName1,tagColor1,tagDescription1)
+
+    //Then Valido que se haya editado el tag
+    tagEdit.validateEdited(tagName1)
+
+    //And Elimino el tag creado
     tagDelete.visit()
     tagDelete.clickOn()
-
-    //And Hago click en eliminar
     tagDelete.delete()
-    
-    //And Confirmo la eliminacion
     tagDelete.confirm()
-    
-    //Then valido que se haya eliminado el tag
     tagDelete.validateDeleted()
 
     //And Cierro sesion en "<url>"

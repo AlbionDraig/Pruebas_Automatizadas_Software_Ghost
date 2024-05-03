@@ -5,5 +5,9 @@
 
 	"tagName": "SGBTag",
   "tagColor": "990000",
-  "tagDescription": "Hello World"
+  "tagDescription": "Hail hydra",
+
+	"tagName1": "RBDTag",
+  "tagColor2": "00cca3",
+  "tagDescription3": "Power by kraken"
 }
