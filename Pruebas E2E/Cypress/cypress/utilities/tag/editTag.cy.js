@@ -15,8 +15,7 @@ export class TagEdit {
   editTag(tagname,color,description) {
     cy.get(this.tagButton).click()
     cy.get(this.nameField).clear().type(tagname)
-    cy.get(this.colorField).clear()
-    cy.get(this.colorField).type(color)
+    cy.get(this.colorField).clear().type(color)
     cy.get(this.descriptionField).clear().type(description)
     cy.get(this.saveButton).click()
     this.visit()
