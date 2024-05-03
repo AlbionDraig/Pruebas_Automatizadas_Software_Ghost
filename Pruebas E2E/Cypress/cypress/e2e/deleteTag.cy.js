@@ -29,13 +29,13 @@ describe('Scenario: Eliminar un Tag', () => {
   });
 
   it('Steps', () => {
-    // Given Ingreso al portal de Ghost
+    //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
     loginPage.visit(url);
     loginPage.validatePage();
     loginPage.login(user,password);
     loginPage.validateError();
 
-    //And Creo un nuevo Tag
+    //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
     tagCreate.visit();
     tagCreate.createTag(tagName,tagColor,tagDescription);
 
@@ -46,13 +46,13 @@ describe('Scenario: Eliminar un Tag', () => {
     //And Hago click en eliminar
     tagDelete.delete()
     
-    //And Hago click en eliminar
+    //And Confirmo la eliminacion
     tagDelete.confirm()
     
     //Then valido que se haya eliminado el tag
     tagDelete.validateDeleted()
 
-    //Cierra sesion al finalizar
+    //And Cierro sesion en "<url>"
     logout.visit(url)
     logout.validateError()
   });
