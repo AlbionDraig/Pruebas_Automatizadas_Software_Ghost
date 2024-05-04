@@ -40,12 +40,12 @@ describe('Scenario: Editar un Member', () => {
     loginPage.login(user,password);
     loginPage.validateError();
 
-    //And Creo un nuevo Member con "<memberName>", "<mamberEmail>", "<mamberNote>"
+    //And Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
     memberCreate.visit()
     memberCreate.create(name, email, note)
     memberCreate.validate(name)
 
-    //When Edito el miembro creado con "<memberName1>", "<mamberEmail1>", "<mamberNote1>"
+    //When Edito el miembro creado con "<memberName1>", "<memberEmail1>", "<memberNote1>"
     memberEdit.visit()
     memberEdit.edit(name1, email1, note1)
 

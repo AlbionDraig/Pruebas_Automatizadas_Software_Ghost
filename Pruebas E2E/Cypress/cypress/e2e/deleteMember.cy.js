@@ -35,7 +35,7 @@ describe('Scenario: Eliminar un Member', () => {
     loginPage.login(user,password);
     loginPage.validateError();
 
-    //And Creo un nuevo Member con "<memberName>", "<mamberEmail>", "<mamberNote>"
+    //And Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
     memberCreate.visit()
     memberCreate.create(name, email, note)
     memberCreate.validate(name)

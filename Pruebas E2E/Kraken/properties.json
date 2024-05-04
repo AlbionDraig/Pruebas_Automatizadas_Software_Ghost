@@ -1,13 +1,21 @@
 {
-	"url": "http://localhost:8080",
-	"user": "AlbionDraig@SGB.com",
-	"password": "SzNKcKjw2r2Pu-h",
+  "url": "http://localhost:8080",
+  "user": "AlbionDraig@SGB.com",
+  "password": "SzNKcKjw2r2Pu-h",
 
-	"tagName": "SGBTag",
+  "tagName": "SGBTag",
   "tagColor": "990000",
   "tagDescription": "Hail hydra",
 
-	"tagName1": "RBDTag",
-  "tagColor2": "00cca3",
-  "tagDescription3": "Power by kraken"
+  "tagName1": "RBDTag",
+  "tagColor1": "00cca3",
+  "tagDescription1": "Power by kraken",
+
+  "memberName": "Eren",
+  "memberEmail": "hercules@demi.la",
+  "memberNote": "Doom eternal",
+
+	"memberName1": "Mikasa",
+  "memberEmail1": "atenea@dio.na",
+  "memberNote1": "Another world"
 }

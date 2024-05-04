@@ -35,7 +35,7 @@ describe('Scenario: Crear un Member', () => {
     loginPage.login(user,password);
     loginPage.validateError();
 
-    //When Creo un nuevo Member con "<memberName>", "<mamberEmail>", "<mamberNote>"
+    //When Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
     memberCreate.visit()
     memberCreate.create(name, email, note)
 
