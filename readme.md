@@ -4,12 +4,21 @@ Esta guía te ayudará a instalar Docker Desktop y a levantar y bajar los conten
 
 ## Instalación de Docker Desktop
 
-0. Validar que se tiene instalado [Subsistema de Windows para Linux](https://learn.microsoft.com/es-es/windows/wsl/install)
+0. Validar los requerimientos segun el OS ([Windows](https://docs.docker.com/desktop/install/windows-install/), [Linux](https://docs.docker.com/desktop/install/linux-install/), [Mac](https://docs.docker.com/desktop/install/mac-install/))
 1. Descarga Docker Desktop desde [el sitio web oficial de Docker](https://www.docker.com/products/docker-desktop).
 2. Sigue las instrucciones de instalación para tu sistema operativo.
 3. Una vez instalado, abre Docker Desktop.
 
-La versión utilizada para el desarrollo es Docker version 25.0.3, build 4debf41.
+La versión utilizada para el desarrollo es:
+```
+Docker version 25.0.3, build 4debf41.
+Procesador:	Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz   2.40 GHz
+RAM instalada:	16,0 GB
+Tipo de sistema	Sistema operativo de 64 bits, procesador x64
+OS:	Windows 11 Home Single Language
+Versión:	23H2
+Compilación del OS:	22631.3527
+```
 
 ## Levantar Docker para el proyecto
 
