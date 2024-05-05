@@ -101,6 +101,31 @@ When('Edito la pagina ya creada con {kraken-string}, {kraken-string}, {kraken-st
     //return await this.driver.$('a[title=Dashboard]');
 });
 
+When('Agrego tag a la pagina creada con {kraken-string}, {kraken-string}', async function (tittle,tagName) {
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
+    const elements = await this.driver.$$('a.gh-list-data.gh-post-list-title');
+
+    for (const element of elements){
+        const text = await element.getText();
+        if(text.includes(tittle)){
+            await element.click();
+            break;
+        }
+    }
+    await this.driver.$('button.settings-menu-toggle.gh-btn.gh-btn-editor.gh-btn-icon.icon-only.gh-btn-action-icon').click();
+    await this.driver.$('[class="ember-power-select-trigger-multiple-input"]').click();
+
+    const tagElements = await this.driver.$$('li.ember-power-select-option');
+    for (const element of tagElements){
+        const text = await element.getText();
+        if(text.includes(tagName)){
+            await element.click();
+            break;
+        }
+    }    
+    return await this.driver.$('button.settings-menu-toggle.gh-btn.gh-btn-editor.gh-btn-icon.icon-only.gh-btn-action-icon').click();
+});
+
 Then('Valido que se haya eliminado el tag {kraken-string}', async function (tagName) {
     await new Promise(resolve => {setTimeout(resolve, 2000);});
     try {

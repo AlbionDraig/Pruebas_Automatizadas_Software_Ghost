@@ -17,5 +17,11 @@
 
 	"memberName1": "Mikasa",
   "memberEmail1": "atenea@dio.na",
-  "memberNote1": "Another world"
+  "memberNote1": "Another world",
+
+  "tittle": "Crear mi primera pagina",
+  "content": "Se crea mi primera pagina",
+
+  "tittle2": "Se edita mi primera pagina",
+  "content2": "Se edita mi primera pagina"
 }

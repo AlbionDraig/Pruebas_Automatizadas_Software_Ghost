@@ -50,7 +50,7 @@ describe('Scenario: Editar un Tag', () => {
         casePageCreate.visit()
         casePageCreate.create(tittle,content)
 
-        //Then agrego el tag a la pagina con <tittle>,<tittle>
+        //When agrego el tag a la pagina con <tittle>,<tittle>
         caseAddTagToPage.visit()
         caseAddTagToPage.addTagToPage(tittle,tagName)
 
