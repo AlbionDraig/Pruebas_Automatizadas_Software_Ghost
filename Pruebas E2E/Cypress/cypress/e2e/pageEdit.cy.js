@@ -39,10 +39,10 @@ describe('Scenario: Editar una pagina', () => {
         casePageCreate.visit()
         casePageCreate.create(tittle,content)
     
-        //Then Editar pagina con "<tittle>", "<tittle2>", "<content2>"
+        //When Edito una pagina con "<tittle>", "<tittle2>", "<content2>"
         casePageEdit.editarPage(tittle,tittle2,content2)
 
-        // Then Eliminar Pagina con "<tittle2>"
+        // Then Elimino la Pagina con "<tittle2>"
         casePageDelete.delete(tittle2)
         casePageDelete.validate(tittle2)   
     

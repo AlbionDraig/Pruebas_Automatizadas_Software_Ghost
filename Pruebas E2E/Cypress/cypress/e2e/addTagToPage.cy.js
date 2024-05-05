@@ -3,8 +3,7 @@ const { logout } = require("../utilities/login/logout.cy");
 const { tagCreate } = require("../utilities/tag/createTag.cy");
 const { tagDelete } = require("../utilities/tag/deleteTag.cy");
 const { casePageCreate } = require("../utilities/page/casePageCreate.cy");
-const { casePageDelete } = require("../utilities/page/casePageDelete.cy");
-const { casePageEdit } = require("../utilities/page/casePageEdit.cy");
+const { casePageDelete, CasePageDelete } = require("../utilities/page/casePageDelete.cy");
 const { caseAddTagToPage } = require("../utilities/page/caseAddTagToPage.cy");
 
 // Parametrical variables
@@ -34,8 +33,6 @@ describe('Scenario: Editar un Tag', () => {
       cy.fixture('page').then(data => {
         tittle = data.tittle;
         content = data.content;
-        tittle2 = data.tittle2;
-        content2 = data.content2;
       });
     });
     it('Steps', () => {
@@ -53,24 +50,20 @@ describe('Scenario: Editar un Tag', () => {
         casePageCreate.visit()
         casePageCreate.create(tittle,content)
 
-        //Then agrego el tag a la pagina
+        //Then agrego el tag a la pagina con <tittle>,<tittle>
         caseAddTagToPage.visit()
         caseAddTagToPage.addTagToPage(tittle,tagName)
 
     
-        //And Elimino el tag creado
+        //And Elimino el tag creado con <tagName>
         tagDelete.visit()
         tagDelete.clickOn(tagName)
         tagDelete.delete()
         tagDelete.confirm()
-        
 
-        //And Editar una pagina creada
-        casePageEdit.visit()
-        casePageEdit.editarPage(tittle,tittle2,content2)
-
-        // And Eliminar Pagina
-        casePageDelete.delete(tittle2) 
+        // And Elimino la pagina con <tittle>
+        casePageDelete.visit()
+        casePageDelete.delete(tittle) 
     
         //And Cierro sesion en "<url>"
         logout.visit(url)

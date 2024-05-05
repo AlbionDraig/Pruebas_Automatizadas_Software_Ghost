@@ -36,10 +36,10 @@ describe('Scenario: Crear new Page', () => {
         casePageCreate.visit()
         casePageCreate.create(tittle,content)
     
-        //Then Valido que se haya creado el Member "<memberName>"
+        //Then Valido que se haya creado la pagina con "<tittle>"
         casePageCreate.validate(tittle)
 
-        //then elimino el page creado "<tittle>"
+        //And elimino el page creado "<tittle>"
         casePageDelete.delete(tittle)   
     
         //And Cierro sesion en "<url>"

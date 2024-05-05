@@ -39,7 +39,7 @@ describe('Scenario: Editar una pagina', () => {
         // when Delete page con "<tittle>"
         casePageDelete.delete(tittle)
         
-        // Then Validate page delete "<tittle>"
+        // Then Validar la pagina eliminada con "<tittle>"
         casePageDelete.validate(tittle)
     
         //And Cierro sesion en "<url>"
