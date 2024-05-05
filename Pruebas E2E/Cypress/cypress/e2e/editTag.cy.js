@@ -44,19 +44,19 @@ describe('Scenario: Editar un Tag', () => {
     tagCreate.visit();
     tagCreate.createTag(tagName,tagColor,tagDescription);
 
-    //When Edito el Tag con "<tagName1>", "<tagColor1>", "<tagDescription1>"
+    //When Edito el Tag "<tagName>" con "<tagName1>", "<tagColor1>", "<tagDescription1>"
     tagEdit.visit();
-    tagEdit.editTag(tagName1,tagColor1,tagDescription1)
+    tagEdit.editTag(tagName,tagName1,tagColor1,tagDescription1)
 
-    //Then Valido que se haya editado el tag
+    //Then Valido que se haya editado el tag "<tagName1>"
     tagEdit.validateEdited(tagName1)
 
-    //And Elimino el tag creado
+    //And Elimino el tag "<tagName1>" creado
     tagDelete.visit()
-    tagDelete.clickOn()
+    tagDelete.clickOn(tagName1)
     tagDelete.delete()
     tagDelete.confirm()
-    tagDelete.validateDeleted()
+    tagDelete.validateDeleted(tagName1)
 
     //And Cierro sesion en "<url>"
     logout.visit(url)
