@@ -28,9 +28,9 @@ export class CaseAddTagToPage{
          });
       }
 
-      validate(tagName){
-        
-        cy.get('a.gh-content-entry-author').contains(tagName).should('exist');
+      validate(tagName){        
+        //cy.get('a.ember-view permalink.gh-list-data.gh-post-list-title').contains(tagName).should('exist');
+        cy.contains('.gh-content-entry-meta', tagName).should('exist');
       }
 }
 

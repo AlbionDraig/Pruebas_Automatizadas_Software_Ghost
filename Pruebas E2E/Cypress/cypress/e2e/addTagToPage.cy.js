@@ -54,6 +54,9 @@ describe('Scenario: Editar un Tag', () => {
         caseAddTagToPage.visit()
         caseAddTagToPage.addTagToPage(tittle,tagName)
 
+        //Then Validar tag en la pagina <tagName>
+        caseAddTagToPage.validate(tagName)
+
     
         //And Elimino el tag creado con <tagName>
         tagDelete.visit()
