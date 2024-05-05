@@ -1,7 +1,7 @@
 export class TagEdit {
   constructor () {
     this.tagLabel = "a[data-test-nav=tags]";
-    this.tagButton = "ol.tags-list li.gh-list-row.gh-tags-list-item:nth-of-type(3)";
+    this.tagButton = "ol.tags-list li.gh-list-row.gh-tags-list-item";
     this.nameField = "#tag-name";
     this.colorField = "input[name=accent-color][type=text]";
     this.descriptionField = "textarea[name=description][data-test-input=tag-description]";
@@ -12,9 +12,9 @@ export class TagEdit {
     cy.get(this.tagLabel).click()
   }
 
-  editTag(tagname,color,description) {
-    cy.get(this.tagButton).click()
-    cy.get(this.nameField).clear().type(tagname)
+  editTag(oldTagName,tagName,color,description) {
+    cy.get(this.tagButton).contains(oldTagName).click()
+    cy.get(this.nameField).clear().type(tagName)
     cy.get(this.colorField).clear().type(color)
     cy.get(this.descriptionField).clear().type(description)
     cy.get(this.saveButton).click()
@@ -22,13 +22,7 @@ export class TagEdit {
   }
 
   validateEdited(tagName) {
-    cy.get(this.tagButton)
-    .invoke('text')
-    .then(text => {
-      if (!text.includes(tagName)) {
-        throw new Error(`El texto no contiene ${tagName}`);
-      }
-    });
+    cy.get(this.tagButton).contains(tagName);
   }
 
 }

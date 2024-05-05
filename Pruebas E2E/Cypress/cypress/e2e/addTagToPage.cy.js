@@ -60,7 +60,7 @@ describe('Scenario: Editar un Tag', () => {
     
         //And Elimino el tag creado
         tagDelete.visit()
-        tagDelete.clickOn()
+        tagDelete.clickOn(tagName)
         tagDelete.delete()
         tagDelete.confirm()
         

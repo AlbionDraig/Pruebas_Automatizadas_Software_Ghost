@@ -20,15 +20,29 @@ Given('Creo un nuevo Tag con {kraken-string}, {kraken-string}, {kraken-string}',
     return await this.driver.$('a[title=Dashboard]');
 });
 
-When('Elimino el tag creado', async function () {
+When('Elimino el tag {kraken-string} creado', async function (tagName) {
     await this.driver.$('a[data-test-nav=tags]').click();
-    await this.driver.$('ol.tags-list li.gh-list-row.gh-tags-list-item:nth-of-type(3)').click();
+    const elements = await this.driver.$$('h3.gh-tag-list-name')
+    for (const element of elements) {
+        const text = await element.getText();
+        if (text.includes(tagName)) {
+            await element.click();
+            break;
+        }
+    }
     await this.driver.$('button[data-test-button=delete-tag]').click();
     return await this.driver.$('button[data-test-button=confirm]').click();
 });
 
-When('Edito el Tag con {kraken-string}, {kraken-string}, {kraken-string}', async function (tagName, color, description) {
-    await this.driver.$('ol.tags-list li.gh-list-row.gh-tags-list-item:nth-of-type(3)').click();
+When('Edito el Tag {kraken-string} con {kraken-string}, {kraken-string}, {kraken-string}', async function (oldTagName, tagName, color, description) {
+    const elements = await this.driver.$$('h3.gh-tag-list-name')
+    for (const element of elements) {
+        const text = await element.getText();
+        if (text.includes(oldTagName)) {
+            await element.click();
+            break;
+        }
+    }
     await this.driver.$('#tag-name').setValue(tagName);
     await this.driver.$('input[name=accent-color][type=text]').setValue(color);
     await this.driver.$('textarea[name=description][data-test-input=tag-description]').setValue(description);
@@ -87,12 +101,47 @@ When('Edito la pagina ya creada con {kraken-string}, {kraken-string}, {kraken-st
     //return await this.driver.$('a[title=Dashboard]');
 });
 
-Then('Valido que se haya eliminado el tag', async function () {
+Then('Valido que se haya eliminado el tag {kraken-string}', async function (tagName) {
     await new Promise(resolve => {setTimeout(resolve, 2000);});
     try {
-        await this.driver.$('ol.tags-list li.gh-list-row.gh-tags-list-item:nth-of-type(3)');
-        throw new Error('El tag aun existe.');
+        const elements = await this.driver.$$('h3.gh-tag-list-name')
+        for (const element of elements) {
+            const text = await element.getText();
+            if (text.includes(tagName)) {
+                throw new Error('El tag aun existe.');
+            }
+        }
     } catch (error) {}
+});
+
+Then('Valido que se haya editado el tag {kraken-string}', async function (tagName) {
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
+    const elements = await this.driver.$$('h3.gh-tag-list-name');
+    let tagEncontrado = false;
+
+    for (const element of elements) {
+        const text = await element.getText();
+        if (text.includes(tagName)) {
+            tagEncontrado = true;
+            break;
+        }
+    }
+
+    if (!tagEncontrado) {
+        throw new Error(`El tag ${tagName} no fue modificado`);
+    }
+});
+
+Then('Valido que se haya editado el Member {kraken-string}', async function (memberName) {
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
+    try {
+        const text = await this.driver.$('a[data-test-table-data=details] > div > div > h3').getText();
+        if (!text.includes(memberName)) {
+            throw new Error(`El member ${memberName} no fue modificado`);
+        }
+    } catch (error) {
+        throw new Error(`El member ${memberName} no fue encontrado`);
+    }
 });
 
 Then('Valido que se haya creado el Member {kraken-string}', async function (memberName) {
@@ -227,8 +276,6 @@ Then('Valido que se haya eliminado la pagina con {kraken-string}', async functio
     }catch(error){}
     
 });
-
-
 
 Then('Cierro sesion en {kraken-string}', async function (url) {
     await this.driver.url(`${url}/ghost/#/signout/`);

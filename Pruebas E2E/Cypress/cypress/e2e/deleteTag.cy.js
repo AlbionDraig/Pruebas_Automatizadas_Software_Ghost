@@ -39,9 +39,9 @@ describe('Scenario: Eliminar un Tag', () => {
     tagCreate.visit();
     tagCreate.createTag(tagName,tagColor,tagDescription);
 
-    //When Hago click en el tag creado
+    //When Hago click en el tag "<tagName>" creado
     tagDelete.visit()
-    tagDelete.clickOn()
+    tagDelete.clickOn(tagName)
 
     //And Hago click en eliminar
     tagDelete.delete()
@@ -49,8 +49,8 @@ describe('Scenario: Eliminar un Tag', () => {
     //And Confirmo la eliminacion
     tagDelete.confirm()
     
-    //Then valido que se haya eliminado el tag
-    tagDelete.validateDeleted()
+    //Then valido que se haya eliminado el tag "<tagName>"
+    tagDelete.validateDeleted(tagName)
 
     //And Cierro sesion en "<url>"
     logout.visit(url)
