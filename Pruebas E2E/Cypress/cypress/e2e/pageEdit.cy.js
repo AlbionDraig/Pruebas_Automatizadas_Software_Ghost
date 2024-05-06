@@ -42,7 +42,10 @@ describe('Scenario: Editar una pagina', () => {
         //When Edito una pagina con "<tittle>", "<tittle2>", "<content2>"
         casePageEdit.editarPage(tittle,tittle2,content2)
 
-        // Then Elimino la Pagina con "<tittle2>"
+        // Then Valido que se haya editado la pagina "<tittle2>"
+        casePageEdit.validate(tittle2)
+        
+        // And Elimino la Pagina con "<tittle2>"
         casePageDelete.delete(tittle2)
         casePageDelete.validate(tittle2)   
     
