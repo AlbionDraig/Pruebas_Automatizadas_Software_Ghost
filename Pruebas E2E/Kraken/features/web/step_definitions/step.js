@@ -77,7 +77,9 @@ When('Edito el miembro creado con {kraken-string}, {kraken-string}, {kraken-stri
 
 When('Creo una pagina con {kraken-string}, {kraken-string}', async function (tittle, content) {
     await this.driver.$('a[data-test-nav=pages]').click();
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
     await this.driver.$('a.ember-view.gh-btn.gh-btn-primary.view-actions-top-row').click();
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
     await this.driver.$('textarea[data-test-editor-title-input]').setValue(tittle);
     await this.driver.$('p[data-koenig-dnd-droppable=true]').setValue(content);    
     await new Promise(resolve => {setTimeout(resolve, 2000);});
@@ -123,7 +125,9 @@ When('Agrego tag a la pagina creada con {kraken-string}, {kraken-string}', async
             break;
         }
     }    
-    return await this.driver.$('button.settings-menu-toggle.gh-btn.gh-btn-editor.gh-btn-icon.icon-only.gh-btn-action-icon').click();
+    await this.driver.$('button.settings-menu-toggle.gh-btn.gh-btn-editor.gh-btn-icon.icon-only.gh-btn-action-icon').click();
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
+    return await this.driver.$('a[data-test-link="pages"]').click(); 
 });
 
 Then('Valido que se haya eliminado el tag {kraken-string}', async function (tagName) {
@@ -197,29 +201,6 @@ Then('Valido que se haya eliminado el Member', async function () {
         throw new Error('El Member no fue eliminado');
     } catch (error) {}
 });
-Then('Valido que se haya editado el tag {kraken-string}', async function (tagName) {
-    await new Promise(resolve => {setTimeout(resolve, 2000);});
-    try {
-        const text = await this.driver.$('ol.tags-list li.gh-list-row.gh-tags-list-item:nth-of-type(3)').getText();
-        if (!text.includes(tagName)) {
-            throw new Error(`El tag ${tagName} no fue modificado`);
-        }
-    } catch (error) {
-        throw new Error(`El tag ${tagName} no fue encontrado`);
-    }
-});
-
-Then('Valido que se haya editado el Member {kraken-string}', async function (memberName) {
-    await new Promise(resolve => {setTimeout(resolve, 2000);});
-    try {
-        const text = await this.driver.$('a[data-test-table-data=details] > div > div > h3').getText();
-        if (!text.includes(memberName)) {
-            throw new Error(`El member ${memberName} no fue modificado`);
-        }
-    } catch (error) {
-        throw new Error(`El member ${memberName} no fue encontrado`);
-    }
-});
 
 Then('Valido que se haya creado la pagina con {kraken-string}', async function (tittle) {
     await new Promise(resolve => {setTimeout(resolve, 2000);});
@@ -257,6 +238,8 @@ Then('Valido que se haya editado la pagina con {kraken-string}', async function 
 
 Then('Elimino la pagina creada con {kraken-string}', async function (tittle) {
     await new Promise(resolve => {setTimeout(resolve, 2000);});
+    await this.driver.$('a[data-test-nav=pages]').click();
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
     const elements = await this.driver.$$('a.gh-list-data.gh-post-list-title');
 
     for (const element of elements){
@@ -273,6 +256,8 @@ Then('Elimino la pagina creada con {kraken-string}', async function (tittle) {
 
 Then('Elimino la pagina editada con {kraken-string}', async function (tittle2) {
     await new Promise(resolve => {setTimeout(resolve, 2000);});
+    await this.driver.$('a[data-test-nav=pages]').click();
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
     const elements = await this.driver.$$('a.gh-list-data.gh-post-list-title');
 
     for (const element of elements){
@@ -288,6 +273,8 @@ Then('Elimino la pagina editada con {kraken-string}', async function (tittle2) {
 });
 
 Then('Valido que se haya eliminado la pagina con {kraken-string}', async function (tittle) {
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
+    await this.driver.$('a[data-test-nav=pages]').click();
     await new Promise(resolve => {setTimeout(resolve, 2000);});
     try{
         const elements = await this.driver.$$('a.gh-list-data.gh-post-list-title');
