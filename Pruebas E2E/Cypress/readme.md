@@ -60,13 +60,13 @@ También puedes ejecutar las pruebas directamente desde la línea de comandos. A
    Si deseas ejecutar una prueba específica, utiliza el siguiente comando y reemplaza `<nombre_de_prueba>` con el nombre de tu archivo de prueba:
 
    ```
-   npx cypress run --spec .\Pruebas E2E\Cypress\cypress\e2e\<nombre_de_prueba>.spec.js
+   npx cypress run --spec .\cypress\e2e\<nombre_de_prueba>.cy.js
    ```
 
    Por ejemplo:
 
    ```
-   npx cypress run --spec .\Pruebas E2E\Cypress\cypress\e2e\nombre_de_prueba.spec.js
+   npx cypress run --spec .\cypress\e2e\nombre_de_prueba.cy.js
    ```
 
 Esto ejecutará la prueba especificada en modo headless.
@@ -76,3 +76,6 @@ Esto ejecutará la prueba especificada en modo headless.
 Desde los archivos `.\Pruebas E2E\Cypress\cypress\fixtures` se pueden modificar las variables que se usan en el proceso. Se recomienda modificar los valores en caso de ser necesario, como por ejemplo:
 - Cuando se cambia la URL.
 - Cuando se manejan credenciales de acceso diferentes.
+
+# Notas de los desarrolladores:
+Se recomienda antes de cada ejecucion validar que en los apartados de `Posts`, `Pages` y `Tags` se encuentre un solo elemento y que `no contenga` ningun nombre de los que aparecen en los valores paramétricos; En el caso de `members` no debe haber `ninguno`.

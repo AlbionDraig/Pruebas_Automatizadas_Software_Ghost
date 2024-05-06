@@ -49,3 +49,6 @@ Para poder ejecutar los escenarios de pruebas, sigue estos pasos:
 Desde el archivo `.\Pruebas E2E\Kraken\properties.json` se pueden modificar las variables que se usan en el proceso. Se recomienda modificar los valores en caso de ser necesario, como por ejemplo:
 - Cuando se cambia la URL.
 - Cuando se manejan credenciales de acceso diferentes.
+
+# Notas de los desarrolladores:
+Se recomienda antes de cada ejecucion validar que en los apartados de `Posts`, `Pages` y `Tags` se encuentre un solo elemento y que `no contenga` ningun nombre de los que aparecen en los valores paramétricos; En el caso de `members` no debe haber `ninguno`.

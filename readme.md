@@ -1,4 +1,15 @@
-# Guía de instalación y uso de Docker
+# Para tener en cuenta
+
+Como se menciono en la sesion de [Hablemos del proyecto](https://www.coursera.org/learn/pruebas-automatizadas-software/lecture/b6RJI/hablemos-del-proyecto) en el minuto 2:16, se hace la entrega de los escenarios de forma proporcional (5 escenarios por cada integrante) en este caso los intengraten son:
+- Rodrigo Bello
+- Jerson Florez
+- Sebastian Gutierrez B
+
+# Ghost - Onrender
+
+Se dispone de ghost en `https://ghost-djop.onrender.com` en caso de querer utilizarlo se debe configurar en los archivos Json del proyecto, para esto se recomienda leer los readme dentro de `Pruebas E2E\Cypress` y `Pruebas E2E\Kraken` para poder configurar y ejecutar las pruebas.
+
+# Ghost - Guía de instalación y uso con Docker
 
 Esta guía te ayudará a instalar Docker Desktop y a levantar y bajar los contenedores de Docker para este proyecto.
 
