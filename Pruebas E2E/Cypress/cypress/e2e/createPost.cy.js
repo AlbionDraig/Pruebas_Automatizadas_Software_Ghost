@@ -2,8 +2,7 @@
 const { loginPage } = require("../utilities/login/login.cy");
 const { logout } = require("../utilities/login/logout.cy");
 const { postCreate } = require("../utilities/post/createPost.cy.js");
-
-//const { postDelete } = require("../../utilities/post/deletePost.cy");
+const { DeletePost } = require("../utilities/post/deletePost.cy.js");
 
 // Parametrizar variables
 var url, user, password = "";
@@ -39,7 +38,7 @@ describe('Scenario: Crear un nuevo Post', () => {
     //When Creo un nuevo Post 
     postCreate.visit()
     postCreate.create(title,textpost)
-
+   // DeletePost.delete()
         //Then Valido que se haya creado el Member "<memberName>"
     postCreate.validate(title)
 

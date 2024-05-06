@@ -1,20 +1,20 @@
-export class DeletePost {
+export class PostDelete {
     constructor () {
-         this.newPostLabel = "/html/body/div[3]/div/nav[1]/div/section/div[1]/ul[2]/li[1]/a[1]";
-         this.selectPost="/html/body/div[3]/div/main/section/section/div[1]/div[1]/li/a[4]/span/svg/path";
-         this.lastPost="/html/body/div[3]/div/main/section/section/div[1]/div[1]";
-         this.openMenu="/html/body/div[3]/div/main/button";
-         this.deletePost="/html/body/div[3]/div/main/div[1]/div/div/div/div[2]/div/button"
-         this.confirmDelete="/html/body/div[6]/div/div/div[2]/button[2]"
+         this.TagPost = "a[data-test-nav=posts]";
+         this.selectPost="a.ember-view.gh-btn.gh-btn-primary.view-actions-top-row";
+         this.openMenu="a[data-test-psm-trigger=settings]";
+         this.deletePost="button[data-ember-action=254]";
+         this.confirmDelete="button[data-test-task-button-state=idle]";
     }
     
+  
+    
     visit() {
-      cy.get(this.newPostLabel).click()
+      cy.get(this.TagPost).click()
     }
   
-    deleteaPost() {
+    delete() {
       cy.get(this.selectPost).click()
-      cy.get(this.lastPost).click()
       cy.get(this.openMenu).click()
       cy.get(this.deletePost).click()
       cy.get(this.confirmDelete).click()  
@@ -25,4 +25,4 @@ export class DeletePost {
     
     }
     
- //   export const DeletePost = new DeletePost(); 
+    export const DeletePost = new PostDelete(); 
