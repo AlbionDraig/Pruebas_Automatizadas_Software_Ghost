@@ -19,8 +19,7 @@ export class CasePagesCreate {
       cy.get(this.contentPage).type(content)        
       cy.get('a[data-test-link="pages"]').click();      
 
-      //cy.get('input[placeholder="Search pages..."]').type('Crear mi primera pagina');
-      //cy.get('ol[data-test-resource-type="pages"]').contains('Crear mi primera pagina');
+
     }
 
     validate(tittle){
@@ -33,3 +32,8 @@ export class CasePagesCreate {
   }
   
   export const casePageCreate = new CasePagesCreate();
+
+  visit() {
+    cy.get(this.labelPostside).click()
+  }
+
