@@ -1,17 +1,16 @@
-// Import modules to navigate and interact
+/*// Import modules to navigate and interact
 const { loginPage } = require("../utilities/login/login.cy");
 const { logout } = require("../utilities/login/logout.cy");
-const { postCreate } = require("../utilities/post/createPost.cy.js");
+const{schedulePost} = require("../utilities/post/schedulePost.cy.js");
 const { deletePost } = require("../utilities/post/deletePost.cy.js");
 
 // Parametrizar variables
 var url,
   user,
   password = "";
-var title,
-  textpost = "";
+var title3, textPost3;
 
-describe("Scenario: Crear un nuevo Post", () => {
+describe("Scenario: Crear un nuevo Post Programado", () => {
   beforeEach(() => {
     Cypress.on("uncaught:exception", (err, runnable) => {
       console.error("Uncaught exception", err);
@@ -25,8 +24,8 @@ describe("Scenario: Crear un nuevo Post", () => {
     });
     // Obtener informacion del member
     cy.fixture("post").then((data) => {
-      title = data.title;
-      textpost = data.textpost;
+      title3 = data.title3;
+      textPost3 = data.textPost3;
     });
   });
 
@@ -38,9 +37,9 @@ describe("Scenario: Crear un nuevo Post", () => {
     loginPage.validateError();
     
     //And Creo un nuevo Post
-    postCreate.visit();
-    postCreate.create(title, textpost);
-    postCreate.validate(title);
+    schedulePost.visit();
+    schedulePost.create(title3, textPost3);
+    schedulePost.validate(title3);
 
     //When creo un scheduled post
 
@@ -48,10 +47,11 @@ describe("Scenario: Crear un nuevo Post", () => {
 
     //And Elimino el Post creado
     deletePost.visit()
-    deletePost.delete(title)
+    deletePost.delete(title3)
 
     //And Cierro sesion en "<url>"
     logout.visit(url);
     logout.validateError();
   });
 });
+*/

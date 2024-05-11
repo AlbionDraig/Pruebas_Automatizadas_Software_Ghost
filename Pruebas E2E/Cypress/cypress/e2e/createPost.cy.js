@@ -8,8 +8,7 @@ const { deletePost } = require("../utilities/post/deletePost.cy.js");
 var url,
   user,
   password = "";
-var title,
-  textpost = "";
+var title, textPost;
 
 describe("Scenario: Crear un nuevo Post", () => {
   beforeEach(() => {
@@ -26,7 +25,7 @@ describe("Scenario: Crear un nuevo Post", () => {
     // Obtener informacion del member
     cy.fixture("post").then((data) => {
       title = data.title;
-      textpost = data.textpost;
+      textPost = data.textPost;
     });
   });
 
@@ -39,7 +38,7 @@ describe("Scenario: Crear un nuevo Post", () => {
 
     //When Creo un nuevo Post
     postCreate.visit();
-    postCreate.create(title, textpost);
+    postCreate.create(title, textPost);
 
     //Then Valido que se haya creado el Member "<memberName>"
     postCreate.validate(title);

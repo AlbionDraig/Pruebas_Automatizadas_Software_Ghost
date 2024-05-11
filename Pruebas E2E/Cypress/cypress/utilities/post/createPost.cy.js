@@ -9,15 +9,15 @@ export class PostCreate {
     this.backDashboard = "a.ember-view.gh-back-to-editor";
     this.verifyPost = "a.gh-list-data.gh-post-list-title";
   }
-
   visit() {
     cy.get(this.labelPostside).click();
   }
 
   create(title, textPost) {
     cy.get(this.titlePost).type(title);
-    cy.get(this.textPost).type(title);
+    cy.get(this.textPost).type(textPost);
     cy.get(this.publishPostUp).click();
+    //cy.get(this.finalReviewPost).click();
   }
 
   validate(title) {
