@@ -31,20 +31,24 @@ describe('Scenario: Crear new Page', () => {
         loginPage.validatePage();
         loginPage.login(user,password);
         loginPage.validateError();
+        cy.screenshot("Login", { capture: "fullPage", overwrite: true });
     
         //When Creo un nuevo Page con "<tittle>", "<content>"
         casePageCreate.visit()
         casePageCreate.create(tittle,content)
+        cy.screenshot("CreatePage", { capture: "fullPage", overwrite: true });
     
         //Then Valido que se haya creado la pagina con "<tittle>"
         casePageCreate.validate(tittle)
 
         //And elimino el page creado "<tittle>"
-        casePageDelete.delete(tittle)   
+        casePageDelete.delete(tittle) 
+        cy.screenshot("DeletePage", { capture: "fullPage", overwrite: true });  
     
         //And Cierro sesion en "<url>"
         logout.visit(url)
         logout.validateError()
+        cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
       });
     
     })

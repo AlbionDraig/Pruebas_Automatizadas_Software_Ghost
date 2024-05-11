@@ -39,14 +39,17 @@ describe('Scenario: Editar un Tag', () => {
     loginPage.validatePage();
     loginPage.login(user,password);
     loginPage.validateError();
+    cy.screenshot("Login", { capture: "fullPage", overwrite: true });
 
     //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
     tagCreate.visit();
     tagCreate.createTag(tagName,tagColor,tagDescription);
-
+    cy.screenshot("CreateTag", { capture: "fullPage", overwrite: true });
+    
     //When Edito el Tag "<tagName>" con "<tagName1>", "<tagColor1>", "<tagDescription1>"
     tagEdit.visit();
     tagEdit.editTag(tagName,tagName1,tagColor1,tagDescription1)
+    cy.screenshot("EditTag", { capture: "fullPage", overwrite: true });
 
     //Then Valido que se haya editado el tag "<tagName1>"
     tagEdit.validateEdited(tagName1)
@@ -57,10 +60,12 @@ describe('Scenario: Editar un Tag', () => {
     tagDelete.delete()
     tagDelete.confirm()
     tagDelete.validateDeleted(tagName1)
+    cy.screenshot("DeleteTag", { capture: "fullPage", overwrite: true });
 
     //And Cierro sesion en "<url>"
     logout.visit(url)
     logout.validateError()
+    cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
   });
 
 })

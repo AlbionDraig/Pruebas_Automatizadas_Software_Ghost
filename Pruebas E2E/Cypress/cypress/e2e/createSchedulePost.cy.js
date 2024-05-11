@@ -34,26 +34,31 @@ describe("Scenario: Crear un nuevo Post Programado", () => {
     loginPage.validatePage();
     loginPage.login(user, password);
     loginPage.validateError();
+    cy.screenshot("Login", { capture: "fullPage", overwrite: true });
 
     //And Creo un nuevo Post
     postCreate.visit();
     postCreate.create(title, textPost);
     postCreate.validate(title);
+    cy.screenshot("CreatePost", { capture: "fullPage", overwrite: true });
 
     //When creo un scheduled post
     postPublish.visit();
     postPublish.createLater(title);
-
+    cy.screenshot("PostScheduled", { capture: "fullPage", overwrite: true });
+    
     //Then Valido que se programado el post
     postPublish.visitScheduled();
     postPublish.validate(title);
-
+    
     //And Elimino el Post creado
     deletePost.visit();
     deletePost.delete(title);
+    cy.screenshot("DeletePost", { capture: "fullPage", overwrite: true });
 
     //And Cierro sesion en "<url>"
     logout.visit(url);
     logout.validateError();
+    cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
   });
 });

@@ -34,10 +34,12 @@ describe('Scenario: Eliminar un Tag', () => {
     loginPage.validatePage();
     loginPage.login(user,password);
     loginPage.validateError();
+    cy.screenshot("Login", { capture: "fullPage", overwrite: true });
 
     //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
     tagCreate.visit();
     tagCreate.createTag(tagName,tagColor,tagDescription);
+    cy.screenshot("CreateTag", { capture: "fullPage", overwrite: true });
 
     //When Hago click en el tag "<tagName>" creado
     tagDelete.visit()
@@ -48,6 +50,7 @@ describe('Scenario: Eliminar un Tag', () => {
     
     //And Confirmo la eliminacion
     tagDelete.confirm()
+    cy.screenshot("DeleteTag", { capture: "fullPage", overwrite: true });
     
     //Then valido que se haya eliminado el tag "<tagName>"
     tagDelete.validateDeleted(tagName)
@@ -55,6 +58,7 @@ describe('Scenario: Eliminar un Tag', () => {
     //And Cierro sesion en "<url>"
     logout.visit(url)
     logout.validateError()
+    cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
   });
 
 })

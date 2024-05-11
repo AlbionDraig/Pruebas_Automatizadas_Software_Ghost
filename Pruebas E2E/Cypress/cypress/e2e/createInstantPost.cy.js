@@ -34,26 +34,31 @@ describe("Scenario: Crear un nuevo Post al instante", () => {
     loginPage.validatePage();
     loginPage.login(user, password);
     loginPage.validateError();
+    cy.screenshot("Login", { capture: "fullPage", overwrite: true });
 
     //And Creo un nuevo Post
     postCreate.visit();
     postCreate.create(title, textPost);
     postCreate.validate(title);
+    cy.screenshot("CreatePost", { capture: "fullPage", overwrite: true });
 
-    //When creo un scheduled post
+    //When creo un instant post
     postPublish.visit();
     postPublish.createInstant(title);
+    cy.screenshot("PostInstant", { capture: "fullPage", overwrite: true });
 
-    //Then Valido que se programado el post
+    //Then Valido que se creado el post
     postPublish.visitPublised();
     postPublish.validate(title);
 
     //And Elimino el Post creado
     deletePost.visit();
     deletePost.delete(title);
+    cy.screenshot("DeletePost", { capture: "fullPage", overwrite: true });
 
     //And Cierro sesion en "<url>"
     logout.visit(url);
     logout.validateError();
+    cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
   });
 });

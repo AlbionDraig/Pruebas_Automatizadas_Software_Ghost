@@ -34,15 +34,18 @@ describe('Scenario: Eliminar un Member', () => {
     loginPage.validatePage();
     loginPage.login(user,password);
     loginPage.validateError();
+    cy.screenshot("Login", { capture: "fullPage", overwrite: true });
 
     //And Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
     memberCreate.visit()
     memberCreate.create(name, email, note)
     memberCreate.validate(name)
+    cy.screenshot("CreateMember", { capture: "fullPage", overwrite: true });
 
     //When Elimino el Member creado
     memberDelete.visit()
     memberDelete.delete()
+    cy.screenshot("DeleteMember", { capture: "fullPage", overwrite: true });
 
     //Then Valido que se haya eliminado el Member
     memberDelete.validate()
@@ -50,6 +53,7 @@ describe('Scenario: Eliminar un Member', () => {
     //And Cierro sesion en "<url>"
     logout.visit(url)
     logout.validateError()
+    cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
   });
 
 })

@@ -34,23 +34,28 @@ describe('Scenario: Editar una pagina', () => {
         loginPage.validatePage();
         loginPage.login(user,password);
         loginPage.validateError();
+        cy.screenshot("Login", { capture: "fullPage", overwrite: true });
     
         //and Creo un nuevo pagina con "<tittle>", "<content>"
         casePageCreate.visit()
         casePageCreate.create(tittle,content)
+        cy.screenshot("CreatePage", { capture: "fullPage", overwrite: true });
     
         //When Edito una pagina con "<tittle>", "<tittle2>", "<content2>"
         casePageEdit.editarPage(tittle,tittle2,content2)
+        cy.screenshot("EditPage", { capture: "fullPage", overwrite: true });
 
         // Then Valido que se haya editado la pagina "<tittle2>"
         casePageEdit.validate(tittle2)
         
         // And Elimino la Pagina con "<tittle2>"
         casePageDelete.delete(tittle2)
-        casePageDelete.validate(tittle2)   
+        casePageDelete.validate(tittle2)
+        cy.screenshot("Delete", { capture: "fullPage", overwrite: true });  
     
         //And Cierro sesion en "<url>"
         logout.visit(url)
         logout.validateError()
+        cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
       });
     })

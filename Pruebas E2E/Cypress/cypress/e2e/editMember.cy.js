@@ -39,15 +39,18 @@ describe('Scenario: Editar un Member', () => {
     loginPage.validatePage();
     loginPage.login(user,password);
     loginPage.validateError();
+    cy.screenshot("Login", { capture: "fullPage", overwrite: true });
 
     //And Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
     memberCreate.visit()
     memberCreate.create(name, email, note)
     memberCreate.validate(name)
-
+    cy.screenshot("CreateMember", { capture: "fullPage", overwrite: true });
+    
     //When Edito el miembro creado con "<memberName1>", "<memberEmail1>", "<memberNote1>"
     memberEdit.visit()
     memberEdit.edit(name1, email1, note1)
+    cy.screenshot("EditMember", { capture: "fullPage", overwrite: true });
 
     //Then Valido que se haya editado el Member "<memberName1>"
     memberEdit.validate(name1)
@@ -56,10 +59,12 @@ describe('Scenario: Editar un Member', () => {
     memberDelete.visit()
     memberDelete.delete()
     memberDelete.validate()
+    cy.screenshot("DeleteMember", { capture: "fullPage", overwrite: true });
 
     //And Cierro sesion en "<url>"
     logout.visit(url)
     logout.validateError()
+    cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
   });
 
 })

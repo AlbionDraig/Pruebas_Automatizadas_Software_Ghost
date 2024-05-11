@@ -39,13 +39,16 @@ describe("Scenario: Editar una post", () => {
     loginPage.validatePage();
     loginPage.login(user, password);
     loginPage.validateError();
+    cy.screenshot("Login", { capture: "fullPage", overwrite: true });
 
     //and Creo un nuevo post con "<tittle>", "<content>"
     postCreate.visit();
     postCreate.create(title, content);
-
+    cy.screenshot("CreatePost", { capture: "fullPage", overwrite: true });
+    
     //When Edito una post con "<tittle>", "<tittle2>", "<content2>"
     casePostEdit.editarPost(title, title2, content2);
+    cy.screenshot("EditPost", { capture: "fullPage", overwrite: true });
 
     // Then Valido que se haya editado la post "<tittle2>"
     casePostEdit.validate(title2);
@@ -53,9 +56,11 @@ describe("Scenario: Editar una post", () => {
     // And Elimino la Pagina con "<tittle2>"
     deletePost.visit()
     deletePost.delete(title)
+    cy.screenshot("DeletePage", { capture: "fullPage", overwrite: true });
 
     //And Cierro sesion en "<url>"
     logout.visit(url);
     logout.validateError();
+    cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
   });
 });

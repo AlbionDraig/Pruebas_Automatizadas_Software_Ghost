@@ -28,7 +28,7 @@ export class CasePageDelete {
   }
 
   validate(tittle) {
-    cy.get("a.gh-list-data.gh-post-list-title")
+    cy.get("section > section")
       .contains(tittle)
       .should("not.exist");
   }

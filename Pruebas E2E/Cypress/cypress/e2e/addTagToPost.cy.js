@@ -41,35 +41,42 @@ describe("Scenario: Editar un Tag", () => {
     loginPage.validatePage();
     loginPage.login(user, password);
     loginPage.validateError();
+    cy.screenshot("Login", { capture: "fullPage", overwrite: true });
 
     //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
     tagCreate.visit();
     tagCreate.createTag(tagName, tagColor, tagDescription);
+    cy.screenshot("CreateTag", { capture: "fullPage", overwrite: true });
 
     //And Creo un nuevo Post
     postCreate.visit();
     postCreate.create(title, textPost);
     postCreate.validate(title);
+    cy.screenshot("CreatePost", { capture: "fullPage", overwrite: true });
 
     //When agrego el tag al post con <title>,<title>
-    addTag.visitPosts()
-    addTag.addTag(title,tagName)
+    addTag.visitPosts();
+    addTag.addTag(title, tagName);
+    cy.screenshot("AddTagToPost", { capture: "fullPage", overwrite: true });
 
     //Then Validar tag en el post <tagName>
-    addTag.validate(tagName)
+    addTag.validate(tagName);
 
     //And Elimino el tag creado con <tagName>
     tagDelete.visit();
     tagDelete.clickOn(tagName);
     tagDelete.delete();
     tagDelete.confirm();
+    cy.screenshot("DeleteTag", { capture: "fullPage", overwrite: true });
 
     //And Elimino el Post creado
     deletePost.visit();
     deletePost.delete(title);
+    cy.screenshot("DeletePost", { capture: "fullPage", overwrite: true });
 
     //And Cierro sesion en "<url>"
     logout.visit(url);
     logout.validateError();
+    cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
   });
 });

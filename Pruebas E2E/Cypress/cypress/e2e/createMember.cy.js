@@ -34,10 +34,12 @@ describe('Scenario: Crear un Member', () => {
     loginPage.validatePage();
     loginPage.login(user,password);
     loginPage.validateError();
+    cy.screenshot("Login", { capture: "fullPage", overwrite: true });
 
     //When Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
     memberCreate.visit()
     memberCreate.create(name, email, note)
+    cy.screenshot("CreateMember", { capture: "fullPage", overwrite: true });
 
     //Then Valido que se haya creado el Member "<memberName>"
     memberCreate.validate(name)
@@ -46,10 +48,12 @@ describe('Scenario: Crear un Member', () => {
     memberDelete.visit()
     memberDelete.delete()
     memberDelete.validate()
+    cy.screenshot("DeleteMember", { capture: "fullPage", overwrite: true });
 
     //And Cierro sesion en "<url>"
     logout.visit(url)
     logout.validateError()
+    cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
   });
 
 })

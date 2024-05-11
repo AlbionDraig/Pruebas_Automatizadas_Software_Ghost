@@ -33,11 +33,13 @@ describe("Scenario: Crear un nuevo Post", () => {
     loginPage.validatePage();
     loginPage.login(user, password);
     loginPage.validateError();
+    cy.screenshot("Login", { capture: "fullPage", overwrite: true });
 
     //Amd Creo un nuevo Post
     postCreate.visit();
     postCreate.create(title, textpost);
     postCreate.validate(title);
+    cy.screenshot("CreatePost", { capture: "fullPage", overwrite: true });
 
     //When Elimino el Post creado
     deletePost.visit()
@@ -49,5 +51,6 @@ describe("Scenario: Crear un nuevo Post", () => {
     //And Cierro sesion en "<url>"
     logout.visit(url);
     logout.validateError();
+    cy.screenshot("Logout", { capture: "fullPage", overwrite: true });
   });
 });
