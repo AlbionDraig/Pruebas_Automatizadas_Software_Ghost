@@ -1,14 +1,13 @@
-/*// Import modules to navigate and interact
+// Import modules to navigate and interact
 const { loginPage } = require("../utilities/login/login.cy");
 const { logout } = require("../utilities/login/logout.cy");
-const{schedulePost} = require("../utilities/post/schedulePost.cy.js");
+const { postCreate } = require("../utilities/post/createPost.cy.js");
 const { deletePost } = require("../utilities/post/deletePost.cy.js");
+const { postPublish } = require("../utilities/post/publishPost.cy.js");
 
 // Parametrizar variables
-var url,
-  user,
-  password = "";
-var title3, textPost3;
+var url, user, password;
+var title, textPost;
 
 describe("Scenario: Crear un nuevo Post Programado", () => {
   beforeEach(() => {
@@ -24,8 +23,8 @@ describe("Scenario: Crear un nuevo Post Programado", () => {
     });
     // Obtener informacion del member
     cy.fixture("post").then((data) => {
-      title3 = data.title3;
-      textPost3 = data.textPost3;
+      title = data.title;
+      textPost = data.textPost;
     });
   });
 
@@ -35,23 +34,26 @@ describe("Scenario: Crear un nuevo Post Programado", () => {
     loginPage.validatePage();
     loginPage.login(user, password);
     loginPage.validateError();
-    
+
     //And Creo un nuevo Post
-    schedulePost.visit();
-    schedulePost.create(title3, textPost3);
-    schedulePost.validate(title3);
+    postCreate.visit();
+    postCreate.create(title, textPost);
+    postCreate.validate(title);
 
     //When creo un scheduled post
+    postPublish.visit();
+    postPublish.createLater(title);
 
     //Then Valido que se programado el post
+    postPublish.visitScheduled();
+    postPublish.validate(title);
 
     //And Elimino el Post creado
-    deletePost.visit()
-    deletePost.delete(title3)
+    deletePost.visit();
+    deletePost.delete(title);
 
     //And Cierro sesion en "<url>"
     logout.visit(url);
     logout.validateError();
   });
 });
-*/
