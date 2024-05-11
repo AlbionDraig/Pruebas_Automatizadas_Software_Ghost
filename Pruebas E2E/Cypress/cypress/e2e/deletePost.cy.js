@@ -5,11 +5,8 @@ const { postCreate } = require("../utilities/post/createPost.cy.js");
 const { deletePost } = require("../utilities/post/deletePost.cy.js");
 
 // Parametrizar variables
-var url,
-  user,
-  password = "";
-var title,
-  textpost = "";
+var url, user, password;
+var title, textpost;
 
 describe("Scenario: Crear un nuevo Post", () => {
   beforeEach(() => {
@@ -26,7 +23,7 @@ describe("Scenario: Crear un nuevo Post", () => {
     // Obtener informacion del member
     cy.fixture("post").then((data) => {
       title = data.title;
-      textpost = data.textpost;
+      textpost = data.textPost;
     });
   });
 
