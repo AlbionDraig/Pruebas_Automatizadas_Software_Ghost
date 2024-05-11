@@ -3,8 +3,8 @@ const { logout } = require("../utilities/login/logout.cy");
 const { tagCreate } = require("../utilities/tag/createTag.cy");
 const { tagDelete } = require("../utilities/tag/deleteTag.cy");
 const { casePageCreate } = require("../utilities/page/casePageCreate.cy");
-const { casePageDelete, CasePageDelete } = require("../utilities/page/casePageDelete.cy");
-const { caseAddTagToPage } = require("../utilities/page/caseAddTagToPage.cy");
+const { casePageDelete } = require("../utilities/page/casePageDelete.cy");
+const { addTag } = require("../utilities/addTag/addTag.cy");
 
 // Parametrical variables
 var url, user, password = "";
@@ -51,11 +51,11 @@ describe('Scenario: Editar un Tag', () => {
         casePageCreate.create(tittle,content)
 
         //When agrego el tag a la pagina con <tittle>,<tittle>
-        caseAddTagToPage.visit()
-        caseAddTagToPage.addTagToPage(tittle,tagName)
+        addTag.visitPage()
+        addTag.addTag(tittle,tagName)
 
         //Then Validar tag en la pagina <tagName>
-        caseAddTagToPage.validate(tagName)
+        addTag.validate(tagName)
 
     
         //And Elimino el tag creado con <tagName>

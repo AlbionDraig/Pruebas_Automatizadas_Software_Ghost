@@ -9,7 +9,7 @@ const { postPublish } = require("../utilities/post/publishPost.cy.js");
 var url, user, password;
 var title, textPost;
 
-describe("Scenario: Crear un nuevo Post Programado", () => {
+describe("Scenario: Crear un nuevo Post al instante", () => {
   beforeEach(() => {
     Cypress.on("uncaught:exception", (err, runnable) => {
       console.error("Uncaught exception", err);
