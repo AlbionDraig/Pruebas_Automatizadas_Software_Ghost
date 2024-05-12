@@ -31,7 +31,24 @@ Versión:	23H2
 Compilación del OS:	22631.3527
 ```
 
-## Levantar Docker para el proyecto
+## Levantar Docker para el proyecto (PARA PRUEBAS DE REGRESION)
+1. Abre una terminal o línea de comandos.
+2. Navega al directorio raíz de tu proyecto utilizando el comando `cd`.
+3. Asegurarse de no tener otras imagenes de docker instaladas, para ello ejecutar:
+```
+docker rm -f some-ghost0
+docker rm -f some-ghost1
+```
+4. Ejecutar los siguientes comandos para levantar Ghost en los puertos 8080 (`ghost:5.82.2`) y 8081 (`ghost:3.42.9`):
+```
+docker run -d --name some-ghost0 -e NODE_ENV=development -e url=http://localhost:8080 -p 8080:2368 ghost:5.82.2
+docker run -d --name some-ghost1 -e NODE_ENV=development -e url=http://localhost:8081 -p 8081:2368 ghost:3.42.9
+```
+5. Revisar en la url `http://localhost:8080` y `http://localhost:8081` que se haya desplegado Ghost y se crearan las credenciales de acceso (`Correo` y `Contraseña`) que seran necesarias mas adelante para la configuracion de las pruebas automatizadas (Se recomienda usar las mismas que el archivo de configuracion en `./Regresion/Cypress/cypress/fixtures/credentials.json` peor se pueden elegiree otras y se deben actualizar en el archivo JSON).
+6. Para bajar las instancias de Docker una vez terminado de utilizar el proyecto se ejecutan las mismas instrucciones que en el paso 3.
+
+
+## Levantar Docker para el proyecto (PARA PRUEBAS E2E)
 
 1. Abre una terminal o línea de comandos.
 2. Navega al directorio raíz de tu proyecto utilizando el comando `cd`.
