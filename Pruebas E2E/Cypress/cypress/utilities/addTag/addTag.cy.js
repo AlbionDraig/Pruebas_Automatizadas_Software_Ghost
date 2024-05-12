@@ -9,7 +9,7 @@ export class AddTag {
     this.addButton = "button[data-test-button='confirm']";
     this.tagContent = ".gh-content-entry-meta";
   }
-
+ 
   visitPage() {
     cy.get(this.tagLabelPage).click();
   }

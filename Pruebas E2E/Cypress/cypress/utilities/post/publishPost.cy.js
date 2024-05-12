@@ -35,7 +35,7 @@ export class PostPublish {
         cy.get(this.divSelector).eq(0).click();
         break;
       case "Later":
-        cy.get(this.divSelector).eq(1).click();
+          
         break;
     }
     cy.get(this.continueButton).click();
