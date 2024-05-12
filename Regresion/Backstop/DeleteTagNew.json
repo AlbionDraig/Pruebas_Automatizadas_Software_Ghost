@@ -1,0 +1,46 @@
+{
+  "id": "DeleteTag",
+  "viewports": [
+    {
+      "label": "tablet",
+      "width": 1000,
+      "height": 660
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "CreateTag",
+      "url": "./backstop_data/screenshots/8080/DeleteTag/CreateTag.png"
+    },
+    {
+      "label": "DeleteTag",
+      "url": "./backstop_data/screenshots/8080/DeleteTag/DeleteTag.png"
+    },
+    {
+      "label": "Login",
+      "url": "./backstop_data/screenshots/8080/DeleteTag/Login.png"
+    },
+    {
+      "label": "Logout",
+      "url": "./backstop_data/screenshots/8080/DeleteTag/Logout.png"
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report/DeleteTag",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

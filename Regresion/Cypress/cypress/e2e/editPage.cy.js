@@ -53,7 +53,7 @@ describe('Scenario: Editar una pagina', () => {
         // And Elimino la Pagina con "<title2>"
         casePageDelete.delete(url,title2)
         casePageDelete.validate(title2)
-        cy.screenshot(port+"/EditPage"+"/Delete", { capture: "fullPage", overwrite: true });  
+        cy.screenshot(port+"/EditPage"+"/DeletePage", { capture: "fullPage", overwrite: true });  
     
         //And Cierro sesion en "<url>"
         logout.visit(url)

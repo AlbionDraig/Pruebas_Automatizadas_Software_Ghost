@@ -33,12 +33,12 @@ describe('Scenario: Busacr por usuario', () => {
     loginPage.validatePage();
     loginPage.login(user,password);
     loginPage.validateError();
-    cy.screenshot(port+"/search"+"/Login", { capture: "fullPage", overwrite: true });
+    cy.screenshot(port+"/Search"+"/Login", { capture: "fullPage", overwrite: true });
     
     //When busco el usuario "<user>"
     search.visit(url)
     search.search(user)
-    cy.screenshot(port+"/search"+"/EditTag", { capture: "fullPage", overwrite: true });
+    cy.screenshot(port+"/Search"+"/Search", { capture: "fullPage", overwrite: true });
 
     //Then Valido que se haya encontrado el tag "<tag>"
     search.validate()
@@ -46,7 +46,7 @@ describe('Scenario: Busacr por usuario', () => {
     //And Cierro sesion en "<url>"
     logout.visit(url)
     logout.validateError()
-    cy.screenshot(port+"/search"+"/Logout", { capture: "fullPage", overwrite: true });
+    cy.screenshot(port+"/Search"+"/Logout", { capture: "fullPage", overwrite: true });
   });
 
 })

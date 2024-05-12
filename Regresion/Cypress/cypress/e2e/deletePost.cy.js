@@ -46,6 +46,7 @@ describe("Scenario: Crear un nuevo Post", () => {
     //When Elimino el Post creado
     deletePost.visit(url)
     deletePost.delete(url,title)
+    cy.screenshot(port+"/DeletePost"+"/DeletePost", { capture: "fullPage", overwrite: true });
 
     //Then valido que se haya eliminado el post 
     deletePost.validate(title)

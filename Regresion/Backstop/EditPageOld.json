@@ -1,0 +1,49 @@
+{
+  "id": "EditPage",
+  "viewports": [
+    {
+      "label": "tablet",
+      "width": 1000,
+      "height": 660
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "CreatePage",
+      "url": "./backstop_data/screenshots/8081/EditPage/CreatePage.png"
+    },{
+      "label": "EditPage",
+      "url": "./backstop_data/screenshots/8081/EditPage/EditPage.png"
+    },
+    {
+      "label": "DeletePage",
+      "url": "./backstop_data/screenshots/8081/EditPage/DeletePage.png"
+    },
+    {
+      "label": "Login",
+      "url": "./backstop_data/screenshots/8081/EditPage/Login.png"
+    },
+    {
+      "label": "Logout",
+      "url": "./backstop_data/screenshots/8081/EditPage/Logout.png"
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report/EditPage",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": ["browser"],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": ["--no-sandbox"]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

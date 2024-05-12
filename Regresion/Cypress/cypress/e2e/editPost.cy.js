@@ -53,7 +53,7 @@ describe("Scenario: Editar una post", () => {
     // And Elimino la Pagina con "<tittle2>"
     deletePost.visit(url)
     deletePost.delete(url,title)
-    cy.screenshot(port+"/EditPost"+"/DeletePage", { capture: "fullPage", overwrite: true });
+    cy.screenshot(port+"/EditPost"+"/DeletePost", { capture: "fullPage", overwrite: true });
 
     //And Cierro sesion en "<url>"
     logout.visit(url);
