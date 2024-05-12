@@ -5,5 +5,7 @@
 
 	"name1": "RBDTag",
   "color1": "00cca3",
-  "description1": "Power by kraken"
+  "description1": "Power by kraken",
+
+  "searchField": "Full name"
 }
