@@ -65,7 +65,7 @@ const scenarios = [
         "Login",
         "CreatePage",
         "EditPage",
-        "Delete",
+        "DeletePage",
         "Logout"
       ],
   },
@@ -75,7 +75,7 @@ const scenarios = [
         "Login",
         "CreatePost",
         "EditPost",
-        "DeletePage",
+        "DeletePost",
         "Logout"
       ],
   },
@@ -86,6 +86,14 @@ const scenarios = [
         "CreateTag",
         "EditTag",
         "DeleteTag",
+        "Logout"
+      ],
+  },
+  {
+    name: "Search",
+    steps: [
+        "Login",
+        "Search",
         "Logout"
       ],
   } 
@@ -107,8 +115,8 @@ async function executeCompare() {
 
     for (const step of scenario.steps) {
       
-      const imagePath1 = `D:/GitUniAndes/PruebasAutomatizadasGhost/Pruebas_Automatizadas_Software_Ghost/Regresion/Cypress/cypress/screenshots/8080/${scenario.name}/${step}.png`;
-      const imagePath2 = `D:/GitUniAndes/PruebasAutomatizadasGhost/Pruebas_Automatizadas_Software_Ghost/Regresion/Cypress/cypress/screenshots/9000/${scenario.name}/${step}.png`;
+      const imagePath1 = `./screenshots/8080/${scenario.name}/${step}.png`;
+      const imagePath2 = `./screenshots/8081/${scenario.name}/${step}.png`;
 
       const data = await compareImages(
         fs.readFileSync(imagePath1),
