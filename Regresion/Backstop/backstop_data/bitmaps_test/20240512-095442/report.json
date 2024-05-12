@@ -1,0 +1,94 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePage_CreatePage_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-095442\\DeletePage_CreatePage_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePage_CreatePage_0_document_0_tablet.png",
+        "label": "CreatePage",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/DeletePage/CreatePage.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\DeletePage_CreatePage_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePage_DeletePage_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-095442\\DeletePage_DeletePage_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePage_DeletePage_0_document_0_tablet.png",
+        "label": "DeletePage",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/DeletePage/DeletePage.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 84.46272727272728,
+          "misMatchPercentage": "84.46",
+          "analysisTime": 133
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-095442\\failed_diff_DeletePage_DeletePage_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePage_Login_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-095442\\DeletePage_Login_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePage_Login_0_document_0_tablet.png",
+        "label": "Login",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/DeletePage/Login.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePage_Logout_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-095442\\DeletePage_Logout_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePage_Logout_0_document_0_tablet.png",
+        "label": "Logout",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/DeletePage/Logout.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    }
+  ],
+  "id": "DeletePage"
+}

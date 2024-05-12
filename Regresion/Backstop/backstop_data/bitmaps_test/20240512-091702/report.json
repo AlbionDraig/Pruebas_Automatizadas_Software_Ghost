@@ -1,0 +1,70 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePage_CreatePage_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-091702\\CreatePage_CreatePage_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePage_CreatePage_0_document_0_tablet.png",
+        "label": "CreatePage",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/CreatePage/CreatePage.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\CreatePage_CreatePage_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePage_DeletePage_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-091702\\CreatePage_DeletePage_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePage_DeletePage_0_document_0_tablet.png",
+        "label": "DeletePage",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/CreatePage/DeletePage.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\CreatePage_DeletePage_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePage_Login_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-091702\\CreatePage_Login_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePage_Login_0_document_0_tablet.png",
+        "label": "Login",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/CreatePage/Login.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\CreatePage_Login_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePage_Logout_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-091702\\CreatePage_Logout_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePage_Logout_0_document_0_tablet.png",
+        "label": "Logout",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/CreatePage/Logout.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\CreatePage_Logout_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "CreatePage"
+}

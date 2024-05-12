@@ -3,7 +3,7 @@ downloads/
 screenshots/
 reports/
 .kraken/
-html_report/
-bitmaps_test/
-bitmaps_reference/
-*/Resemble/results/
+#html_report/
+#bitmaps_test/
+#bitmaps_reference/
+#*/Resemble/results/

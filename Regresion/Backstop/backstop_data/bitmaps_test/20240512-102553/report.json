@@ -1,0 +1,70 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePost_CreatePost_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-102553\\DeletePost_CreatePost_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePost_CreatePost_0_document_0_tablet.png",
+        "label": "CreatePost",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/DeletePost/CreatePost.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\DeletePost_CreatePost_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePost_DeletePost_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-102553\\DeletePost_DeletePost_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePost_DeletePost_0_document_0_tablet.png",
+        "label": "DeletePost",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/DeletePost/DeletePost.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\DeletePost_DeletePost_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePost_Login_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-102553\\DeletePost_Login_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePost_Login_0_document_0_tablet.png",
+        "label": "Login",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/DeletePost/Login.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\DeletePost_Login_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePost_Logout_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-102553\\DeletePost_Logout_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePost_Logout_0_document_0_tablet.png",
+        "label": "Logout",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/DeletePost/Logout.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\DeletePost_Logout_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "DeletePost"
+}

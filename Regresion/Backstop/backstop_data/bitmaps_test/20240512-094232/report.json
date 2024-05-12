@@ -1,0 +1,70 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreateTag_CreateTag_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-094232\\CreateTag_CreateTag_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreateTag_CreateTag_0_document_0_tablet.png",
+        "label": "CreateTag",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/CreateTag/CreateTag.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\CreateTag_CreateTag_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreateTag_DeleteTag_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-094232\\CreateTag_DeleteTag_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreateTag_DeleteTag_0_document_0_tablet.png",
+        "label": "DeleteTag",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/CreateTag/DeleteTag.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\CreateTag_DeleteTag_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreateTag_Login_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-094232\\CreateTag_Login_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreateTag_Login_0_document_0_tablet.png",
+        "label": "Login",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/CreateTag/Login.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\CreateTag_Login_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreateTag_Logout_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-094232\\CreateTag_Logout_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreateTag_Logout_0_document_0_tablet.png",
+        "label": "Logout",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/CreateTag/Logout.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\CreateTag_Logout_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "CreateTag"
+}

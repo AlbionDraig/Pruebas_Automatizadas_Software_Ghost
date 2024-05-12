@@ -1,0 +1,110 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePost_CreatePost_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-102605\\DeletePost_CreatePost_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePost_CreatePost_0_document_0_tablet.png",
+        "label": "CreatePost",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/DeletePost/CreatePost.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 11.604848484848485,
+          "misMatchPercentage": "11.60",
+          "analysisTime": 103
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-102605\\failed_diff_DeletePost_CreatePost_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePost_DeletePost_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-102605\\DeletePost_DeletePost_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePost_DeletePost_0_document_0_tablet.png",
+        "label": "DeletePost",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/DeletePost/DeletePost.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 86.70333333333333,
+          "misMatchPercentage": "86.70",
+          "analysisTime": 157
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-102605\\failed_diff_DeletePost_DeletePost_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePost_Login_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-102605\\DeletePost_Login_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePost_Login_0_document_0_tablet.png",
+        "label": "Login",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/DeletePost/Login.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 6.882878787878788,
+          "misMatchPercentage": "6.88",
+          "analysisTime": 134
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-102605\\failed_diff_DeletePost_Login_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\DeletePost_Logout_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-102605\\DeletePost_Logout_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "DeletePost_Logout_0_document_0_tablet.png",
+        "label": "Logout",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/DeletePost/Logout.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 11.173181818181819,
+          "misMatchPercentage": "11.17",
+          "analysisTime": 152
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-102605\\failed_diff_DeletePost_Logout_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "DeletePost"
+}

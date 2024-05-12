@@ -1,0 +1,110 @@
+report({
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePage_CreatePage_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-091745\\CreatePage_CreatePage_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePage_CreatePage_0_document_0_tablet.png",
+        "label": "CreatePage",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/CreatePage/CreatePage.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 8.808787878787879,
+          "misMatchPercentage": "8.81",
+          "analysisTime": 205
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-091745\\failed_diff_CreatePage_CreatePage_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePage_DeletePage_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-091745\\CreatePage_DeletePage_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePage_DeletePage_0_document_0_tablet.png",
+        "label": "DeletePage",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/CreatePage/DeletePage.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 84.24363636363637,
+          "misMatchPercentage": "84.24",
+          "analysisTime": 232
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-091745\\failed_diff_CreatePage_DeletePage_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePage_Login_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-091745\\CreatePage_Login_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePage_Login_0_document_0_tablet.png",
+        "label": "Login",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/CreatePage/Login.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 6.882878787878788,
+          "misMatchPercentage": "6.88",
+          "analysisTime": 196
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-091745\\failed_diff_CreatePage_Login_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePage_Logout_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-091745\\CreatePage_Logout_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePage_Logout_0_document_0_tablet.png",
+        "label": "Logout",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/CreatePage/Logout.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 11.173181818181819,
+          "misMatchPercentage": "11.17",
+          "analysisTime": 194
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-091745\\failed_diff_CreatePage_Logout_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "CreatePage"
+});

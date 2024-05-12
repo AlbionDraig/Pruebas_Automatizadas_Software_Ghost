@@ -1,0 +1,134 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPost_CreatePost_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105421\\EditPost_CreatePost_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPost_CreatePost_0_document_0_tablet.png",
+        "label": "CreatePost",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/EditPost/CreatePost.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 11.585757575757576,
+          "misMatchPercentage": "11.59",
+          "analysisTime": 91
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-105421\\failed_diff_EditPost_CreatePost_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPost_EditPost_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105421\\EditPost_EditPost_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPost_EditPost_0_document_0_tablet.png",
+        "label": "EditPost",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/EditPost/EditPost.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 11.70530303030303,
+          "misMatchPercentage": "11.71",
+          "analysisTime": 81
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-105421\\failed_diff_EditPost_EditPost_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPost_DeletePage_0__0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105421\\EditPost_DeletePage_0__0_tablet.png",
+        "selector": "",
+        "fileName": "EditPost_DeletePage_0__0_tablet.png",
+        "label": "DeletePage",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/EditPost/DeletePage.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "engineErrorMsg": "net::ERR_FILE_NOT_FOUND at file://C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\screenshots\\8081\\EditPost\\DeletePage.png",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPost_Login_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105421\\EditPost_Login_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPost_Login_0_document_0_tablet.png",
+        "label": "Login",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/EditPost/Login.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 6.885454545454546,
+          "misMatchPercentage": "6.89",
+          "analysisTime": 124
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-105421\\failed_diff_EditPost_Login_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPost_Logout_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105421\\EditPost_Logout_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPost_Logout_0_document_0_tablet.png",
+        "label": "Logout",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/EditPost/Logout.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 11.173181818181819,
+          "misMatchPercentage": "11.17",
+          "analysisTime": 132
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-105421\\failed_diff_EditPost_Logout_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "EditPost"
+}

@@ -1,0 +1,110 @@
+report({
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePost_CreatePost_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-093904\\CreatePost_CreatePost_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePost_CreatePost_0_document_0_tablet.png",
+        "label": "CreatePost",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/CreatePost/CreatePost.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 11.593181818181817,
+          "misMatchPercentage": "11.59",
+          "analysisTime": 137
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-093904\\failed_diff_CreatePost_CreatePost_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePost_DeletePost_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-093904\\CreatePost_DeletePost_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePost_DeletePost_0_document_0_tablet.png",
+        "label": "DeletePost",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/CreatePost/DeletePost.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 86.70333333333333,
+          "misMatchPercentage": "86.70",
+          "analysisTime": 185
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-093904\\failed_diff_CreatePost_DeletePost_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePost_Login_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-093904\\CreatePost_Login_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePost_Login_0_document_0_tablet.png",
+        "label": "Login",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/CreatePost/Login.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 6.882878787878788,
+          "misMatchPercentage": "6.88",
+          "analysisTime": 151
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-093904\\failed_diff_CreatePost_Login_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\CreatePost_Logout_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-093904\\CreatePost_Logout_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "CreatePost_Logout_0_document_0_tablet.png",
+        "label": "Logout",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/CreatePost/Logout.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 11.173181818181819,
+          "misMatchPercentage": "11.17",
+          "analysisTime": 203
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-093904\\failed_diff_CreatePost_Logout_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "CreatePost"
+});

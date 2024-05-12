@@ -1,0 +1,123 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPage_CreatePage_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105204\\EditPage_CreatePage_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPage_CreatePage_0_document_0_tablet.png",
+        "label": "CreatePage",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/EditPage/CreatePage.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 0.08484848484848485,
+          "misMatchPercentage": "0.08",
+          "analysisTime": 35
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPage_EditPage_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105204\\EditPage_EditPage_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPage_EditPage_0_document_0_tablet.png",
+        "label": "EditPage",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/EditPage/EditPage.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPage_DeletePage_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105204\\EditPage_DeletePage_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPage_DeletePage_0_document_0_tablet.png",
+        "label": "DeletePage",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/EditPage/DeletePage.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPage_Login_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105204\\EditPage_Login_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPage_Login_0_document_0_tablet.png",
+        "label": "Login",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/EditPage/Login.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPage_Logout_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105204\\EditPage_Logout_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPage_Logout_0_document_0_tablet.png",
+        "label": "Logout",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/EditPage/Logout.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "misMatchPercentage": "0.00"
+        }
+      },
+      "status": "pass"
+    }
+  ],
+  "id": "EditPage"
+}

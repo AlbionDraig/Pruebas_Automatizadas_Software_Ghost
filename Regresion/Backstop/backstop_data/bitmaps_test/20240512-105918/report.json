@@ -1,0 +1,86 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditTag_CreateTag_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105918\\EditTag_CreateTag_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditTag_CreateTag_0_document_0_tablet.png",
+        "label": "CreateTag",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/EditTag/CreateTag.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\EditTag_CreateTag_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditTag_EditTag_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105918\\EditTag_EditTag_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditTag_EditTag_0_document_0_tablet.png",
+        "label": "EditTag",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/EditTag/EditTag.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\EditTag_EditTag_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditTag_DeleteTag_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105918\\EditTag_DeleteTag_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditTag_DeleteTag_0_document_0_tablet.png",
+        "label": "DeleteTag",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/EditTag/DeleteTag.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\EditTag_DeleteTag_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditTag_Login_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105918\\EditTag_Login_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditTag_Login_0_document_0_tablet.png",
+        "label": "Login",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/EditTag/Login.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\EditTag_Login_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditTag_Logout_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105918\\EditTag_Logout_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditTag_Logout_0_document_0_tablet.png",
+        "label": "Logout",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8080/EditTag/Logout.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "error": "Reference file not found C:\\Users\\sebas\\Desktop\\Repositories\\Pruebas_Automatizadas_Software_Ghost\\Regresion\\Backstop\\backstop_data\\bitmaps_reference\\EditTag_Logout_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "EditTag"
+}

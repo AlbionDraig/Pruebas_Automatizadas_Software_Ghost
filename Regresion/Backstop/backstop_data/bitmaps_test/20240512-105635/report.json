@@ -1,0 +1,136 @@
+{
+  "testSuite": "BackstopJS",
+  "tests": [
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPost_CreatePost_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105635\\EditPost_CreatePost_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPost_CreatePost_0_document_0_tablet.png",
+        "label": "CreatePost",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/EditPost/CreatePost.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 11.585757575757576,
+          "misMatchPercentage": "11.59",
+          "analysisTime": 88
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-105635\\failed_diff_EditPost_CreatePost_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPost_EditPost_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105635\\EditPost_EditPost_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPost_EditPost_0_document_0_tablet.png",
+        "label": "EditPost",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/EditPost/EditPost.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 11.70530303030303,
+          "misMatchPercentage": "11.71",
+          "analysisTime": 81
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-105635\\failed_diff_EditPost_EditPost_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPost_DeletePost_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105635\\EditPost_DeletePost_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPost_DeletePost_0_document_0_tablet.png",
+        "label": "DeletePost",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/EditPost/DeletePost.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 86.77075757575757,
+          "misMatchPercentage": "86.77",
+          "analysisTime": 119
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-105635\\failed_diff_EditPost_DeletePost_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPost_Login_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105635\\EditPost_Login_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPost_Login_0_document_0_tablet.png",
+        "label": "Login",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/EditPost/Login.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 6.885454545454546,
+          "misMatchPercentage": "6.89",
+          "analysisTime": 123
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-105635\\failed_diff_EditPost_Login_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    },
+    {
+      "pair": {
+        "reference": "..\\..\\bitmaps_reference\\EditPost_Logout_0_document_0_tablet.png",
+        "test": "..\\..\\bitmaps_test\\20240512-105635\\EditPost_Logout_0_document_0_tablet.png",
+        "selector": "document",
+        "fileName": "EditPost_Logout_0_document_0_tablet.png",
+        "label": "Logout",
+        "requireSameDimensions": 0.1,
+        "misMatchThreshold": 0.1,
+        "url": "./backstop_data/screenshots/8081/EditPost/Logout.png",
+        "expect": 0,
+        "viewportLabel": "tablet",
+        "diff": {
+          "isSameDimensions": true,
+          "dimensionDifference": {
+            "width": 0,
+            "height": 0
+          },
+          "rawMisMatchPercentage": 11.173181818181819,
+          "misMatchPercentage": "11.17",
+          "analysisTime": 126
+        },
+        "diffImage": "..\\..\\bitmaps_test\\20240512-105635\\failed_diff_EditPost_Logout_0_document_0_tablet.png"
+      },
+      "status": "fail"
+    }
+  ],
+  "id": "EditPost"
+}
