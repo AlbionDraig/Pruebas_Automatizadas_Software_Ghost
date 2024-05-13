@@ -124,10 +124,9 @@ When('Agrego tag a la pagina creada con {kraken-string}, {kraken-string}', async
             await element.click();
             break;
         }
-    }    
-    await this.driver.$('button.settings-menu-toggle.gh-btn.gh-btn-editor.gh-btn-icon.icon-only.gh-btn-action-icon').click();
+    }
     await new Promise(resolve => {setTimeout(resolve, 2000);});
-    return await this.driver.$('a[data-test-link="pages"]').click(); 
+    return await this.driver.$('header > div > a').click();
 });
 
 Then('Valido que se haya eliminado el tag {kraken-string}', async function (tagName) {
@@ -297,13 +296,13 @@ When('Creo un nuevo Post con {kraken-string}, {kraken-string}', async function (
     await this.driver.$('p[data-koenig-dnd-droppable=true]').click();
     await new Promise(resolve => {setTimeout(resolve, 2000);});
     await this.driver.$('p[data-koenig-dnd-droppable=true]').setValue(content);    
-    await new Promise(resolve => {setTimeout(resolve, 2000);});
+    await new Promise(resolve => {setTimeout(resolve, 4000);});
     return await this.driver.$('a[data-test-link="posts"]').click();    
 });
 
 // Creo un schedule post 
-When('Creo un schedule Post {kraken-string}, {kraken-string}', async function (tittle) {
-/*
+When('Creo un schedule post {kraken-string}', async function (tittle) {
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
     await this.driver.$('a[data-test-nav=posts').click();
     await new Promise(resolve => {setTimeout(resolve, 2000);}); 
     const elements = await this.driver.$$('a.gh-list-data.gh-post-list-title')
@@ -316,21 +315,45 @@ When('Creo un schedule Post {kraken-string}, {kraken-string}', async function (t
     }
     await this.driver.$('header > section.gh-editor-publish-buttons > button[data-test-button=publish-flow]').click();
     await new Promise(resolve => {setTimeout(resolve, 2000);});
-    await this.driver.$('a[data-test-nav-custom=posts-Scheduled').click();
-    this.api.waitForElementVisible(this.divSelector, 5000) ;// Espera a que el elemento esté visible
-    await this.driver.$(this.divSelector + ':nth-of-type(2)').click();
+    await this.driver.$('div > div > div.gh-publish-settings > div.gh-publish-setting.last > button').click();
     await new Promise(resolve => {setTimeout(resolve, 2000);});
-    await this.driver.$('button[data-test-button=continue]').click();
+    await this.driver.$(' div > fieldset > div > div:nth-child(2)').click();
     await new Promise(resolve => {setTimeout(resolve, 2000);});
-    await this.driver.$('button[data-test-button=confirm-publish]').click()
+    await this.driver.$('div > div > div.gh-publish-cta > button').click();
     await new Promise(resolve => {setTimeout(resolve, 2000);});
-    await this.driver.$('button[data-test-button=close-publish-flow]').click()
-    await new Promise(resolve => {setTimeout(resolve, 2000);});   
-    await this.driver.$('a[data-test-link=posts]').click()
-       });
+    await this.driver.$('div > div > div.gh-publish-cta > button[data-test-button="confirm-publish"]').click();
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
+    await this.driver.$('div > header > button > span').click();    
+    await new Promise(resolve => {setTimeout(resolve, 4000);});
+    return await this.driver.$('a[data-test-link="posts"]').click();  
+});
+
+// Creo un instant post 
+When('Creo un instant post {kraken-string}', async function (tittle) {
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
+    await this.driver.$('a[data-test-nav=posts').click();
+    await new Promise(resolve => {setTimeout(resolve, 2000);}); 
+    const elements = await this.driver.$$('a.gh-list-data.gh-post-list-title')
+    for (const element of elements) {
+        const text = await element.getText();
+        if (text.includes(tittle)) {
+            await element.click();
+            break;
+        }
+    }
+    await this.driver.$('header > section.gh-editor-publish-buttons > button[data-test-button=publish-flow]').click();
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
+    await this.driver.$('div > div > div.gh-publish-cta > button').click();
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
+    await this.driver.$('div > div > div.gh-publish-cta > button[data-test-button="confirm-publish"]').click();
+    await new Promise(resolve => {setTimeout(resolve, 2000);});
+    await this.driver.$('div > header > button > span').click();    
+    await new Promise(resolve => {setTimeout(resolve, 4000);});
+    return await this.driver.$('a[data-test-link="posts"]').click();  
+});
 
  //Validar que se creo el post programado 
-Then('Valido que programo el Post {kraken-string}', async function (tittle) {
+Then('Valido que se programo el Post {kraken-string}', async function (tittle) {
 await new Promise(resolve => {setTimeout(resolve, 2000);}); 
 const elements = await this.driver.$$('a.gh-list-data.gh-post-list-title');
 let postEncontrado = false;
@@ -342,7 +365,6 @@ for (const element of elements){
         break;
     }
 }
-*/
 });
 
 //Edit post
@@ -388,9 +410,7 @@ When('Agrego tag a un nuevo Post con {kraken-string}, {kraken-string}', async fu
             break;
         }
     }    
-    await this.driver.$('button.settings-menu-toggle.gh-btn.gh-btn-editor.gh-btn-icon.icon-only.gh-btn-action-icon').click();
-    await new Promise(resolve => {setTimeout(resolve, 2000);});
-    return await this.driver.$('a[data-test-link="post"]').click(); 
+    await this.driver.$('header > div > a').click();
 });
 
 ///Eliminar un Post 
@@ -469,9 +489,6 @@ Then('Valido que se haya editado el Post con {kraken-string}', async function (t
         throw new Error(`La pagina ${tittle2} no fue creado`);
     }
 });
-
-
-
 
 Then('Cierro sesion en {kraken-string}', async function (url) {
     await this.driver.url(`${url}/ghost/#/signout/`);

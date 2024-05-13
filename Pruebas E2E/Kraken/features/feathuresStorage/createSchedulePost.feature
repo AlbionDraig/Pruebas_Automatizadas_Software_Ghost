@@ -6,5 +6,5 @@ Scenario: Crear un Post programado
   And Creo un nuevo Post con "<tittle>", "<content>"
   When Creo un schedule post "<tittle>"
   Then Valido que se programo el Post "<tittle>"
-  And Elimino el Post creador con "<tittle>"
+  And Elimino el Post creado con "<tittle>"
   And Cierro sesion en "<url>"
