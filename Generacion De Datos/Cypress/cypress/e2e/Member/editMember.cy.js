@@ -38,7 +38,23 @@ describe("Scenario: Editar un Member", () => {
     loginPage.validateError();
   });
 
-  it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //And Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
+    memberCreate.visit();
+    memberCreate.create(name, email, note);
+    memberCreate.visit();
+    memberCreate.validate(name);
+    //When Edito el miembro creado con "<memberName1>", "<memberEmail1>", "<memberNote1>"
+    memberEdit.visit();
+    memberEdit.edit(name, name1, email1, note1);
+    memberEdit.visit();
+    //Then Valido que se haya editado el Member "<memberName1>"
+    memberEdit.validate(name1);
+    //And Elimino el Member creado
+    memberDelete.visit();
+    memberDelete.delete();
+    memberDelete.validate();
+  });
 
   it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
     //And Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"

@@ -35,7 +35,15 @@ describe("Scenario: Crear new Page", () => {
     loginPage.validateError();
   });
 
-  it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //When Creo un nuevo Page con "<title>", "<content>"
+    casePageCreate.visit();
+    casePageCreate.create(title, content);
+    //Then Valido que se haya creado la pagina con "<title>"
+    casePageCreate.validate(title);
+    //And elimino el page creado "<title>"
+    casePageDelete.delete(title);
+  });
 
   it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
     //When Creo un nuevo Page con "<title>", "<content>"

@@ -38,7 +38,25 @@ describe("Scenario: Editar un Tag", () => {
     loginPage.validateError();
   });
 
-  it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
+    tagCreate.visit();
+    tagCreate.create(tagName, tagColor, tagDescription);
+    tagCreate.visit();
+    //When Edito el Tag "<tagName>" con "<tagName1>", "<tagColor1>", "<tagDescription1>" con el color invalido
+    tagEdit.visit();
+    tagEdit.edit(tagName, tagName1, tagColor1, tagDescription1);
+    //Then Valido el error al editar el tag
+    tagEdit.validateError();
+    tagEdit.visit();
+    tagEdit.acceptChanges();
+    //And Elimino el tag "<tagName>" creado
+    tagDelete.visit();
+    tagDelete.clickOn(tagName);
+    tagDelete.delete();
+    tagDelete.confirm();
+    tagDelete.validateDeleted(tagName1);
+  });
 
   it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
     //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"

@@ -36,7 +36,17 @@ describe("Scenario: Crear un Member", () => {
     loginPage.validateError();
   });
 
-  it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //When Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
+    memberCreate.visit();
+    memberCreate.create(name, email, note);
+    //Then Valido que se haya creado el Member "<memberName>"
+    memberCreate.validate(name);
+    //And Elimino el Member creado
+    memberDelete.visit();
+    memberDelete.delete();
+    memberDelete.validate();
+  });
 
   it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
     //When Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"

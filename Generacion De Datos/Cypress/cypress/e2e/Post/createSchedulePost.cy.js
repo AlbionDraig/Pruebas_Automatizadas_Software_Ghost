@@ -38,7 +38,18 @@ describe("Scenario: Crear un nuevo Post Programado", () => {
     loginPage.validateError();
   });
 
-  //it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //And Creo un nuevo Post
+    postCreate.visit();
+    postCreate.create(title, content);
+    //When creo un scheduled post
+    postPublish.create(title, date, time);
+    //Then Valido que se programado el post
+    postPublish.visitScheduled();
+    postPublish.validate(title);
+    //And Elimino el Post creado
+    deletePost.delete(title);
+  });
 
   it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
     //And Creo un nuevo Post
@@ -58,5 +69,5 @@ describe("Scenario: Crear un nuevo Post Programado", () => {
     deletePost.delete(title);
   });
 
-  //it("Escenario Aleatorio", () => {});
+  it("Escenario Aleatorio", () => {});
 });

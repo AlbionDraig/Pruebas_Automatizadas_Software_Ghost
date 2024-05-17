@@ -35,7 +35,15 @@ describe("Scenario: Crear un nuevo Post", () => {
     loginPage.validateError();
   });
 
-  //it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //When Creo un nuevo Post
+    postCreate.visit();
+    postCreate.create(title, content);
+    //Then Valido que se haya creado el Post "<memberName>"
+    postCreate.validate(title);
+    //And Elimino el Post creado
+    deletePost.delete(title);
+  });
 
   it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
     //When Creo un nuevo Post
@@ -49,5 +57,5 @@ describe("Scenario: Crear un nuevo Post", () => {
     deletePost.delete(title);
   });
 
-  //it("Escenario Aleatorio", () => {});
+  it("Escenario Aleatorio", () => {});
 });

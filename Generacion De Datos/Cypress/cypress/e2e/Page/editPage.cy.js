@@ -38,7 +38,17 @@ describe("Scenario: Editar una pagina", () => {
     loginPage.validateError();
   });
 
-  it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //and Creo un nuevo pagina con "<title>", "<content>"
+    casePageCreate.visit();
+    casePageCreate.create(title, content);
+    //When Edito una pagina con "<title>", "<title2>", "<content2>"
+    casePageEdit.editarPage(title, title2, content2);
+    // Then Valido que se haya editado la pagina "<title2>"
+    casePageEdit.validate(title2);
+    // And Elimino la Pagina con "<title2>"
+    casePageDelete.delete(title2);
+  });
 
   it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
     //and Creo un nuevo pagina con "<title>", "<content>"

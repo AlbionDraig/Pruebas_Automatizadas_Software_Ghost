@@ -32,7 +32,15 @@ describe("Scenario: Ingresar un usuario invalido", () => {
     loginPage.login(user, password);
   });
 
-  it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
+    loginPage.visit(url);
+    loginPage.validatePage();
+    //When Digito el usuario incorrecto y la contrasena correcta
+    loginPage.login(user, password);
+    //Then Valido el mensaje de error
+    loginPage.validateErrorMessageUser();
+  });
 
   it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
     //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
