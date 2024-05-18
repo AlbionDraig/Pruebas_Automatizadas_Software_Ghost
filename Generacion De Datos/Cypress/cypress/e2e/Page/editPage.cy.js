@@ -23,9 +23,9 @@ describe("Scenario: Editar una pagina", () => {
     });
     // Obtener informacion del member
     cy.fixture("page").then((data) => {
-      title = data.title;
+      title = data.tittle;
       content = data.content;
-      title2 = data.title2;
+      title2 = data.tittle2;
       content2 = data.content2;
     });
   });
@@ -50,7 +50,7 @@ describe("Scenario: Editar una pagina", () => {
     casePageDelete.delete(title2);
   });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
     //and Creo un nuevo pagina con "<title>", "<content>"
     casePageCreate.visit();
     title = faker.lorem.sentence();
@@ -66,5 +66,20 @@ describe("Scenario: Editar una pagina", () => {
     casePageDelete.delete(title2);
   });
 
-  it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
+    //and Creo un nuevo pagina con "<title>", "<content>"
+    casePageCreate.visit();
+    title = faker.lorem.sentence();
+    content = faker.lorem.paragraphs(3);
+    casePageCreate.create(title, content);
+    //When Edito una pagina con "<title>", "<title2>", "<content2>"
+    title2 = faker.lorem.sentence();
+    content2 = faker.lorem.paragraphs(3);
+    casePageEdit.editarPage(title, title2, content2);
+    // Then Valido que se haya editado la pagina "<title2>"
+    casePageEdit.validate(title2);
+    // And Elimino la Pagina con "<title2>"
+    casePageDelete.delete(title2);
+  });
 });

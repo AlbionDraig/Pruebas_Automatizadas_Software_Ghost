@@ -17,13 +17,6 @@ describe("Scenario: Ingresar un usuario invalido", () => {
       invalidUser = credentials.invalidUser;
       password = credentials.password;
     });
-    // Obtener informacion
-    cy.fixture("page").then((data) => {
-      tittle = data.tittle;
-      content = data.content;
-      tittle2 = data.tittle2;
-      content2 = data.content2;
-    });
   });
 
   it("Ingresar con usuario valido para evitar timeout", () => {
@@ -37,12 +30,12 @@ describe("Scenario: Ingresar un usuario invalido", () => {
     loginPage.visit(url);
     loginPage.validatePage();
     //When Digito el usuario incorrecto y la contrasena correcta
-    loginPage.login(user, password);
+    loginPage.login(invalidUser, password);
     //Then Valido el mensaje de error
     loginPage.validateErrorMessageUser();
   });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
     //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
     loginPage.visit(url);
     loginPage.validatePage();
@@ -53,5 +46,15 @@ describe("Scenario: Ingresar un usuario invalido", () => {
     loginPage.validateErrorMessageUser();
   });
 
-  it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
+    //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
+    loginPage.visit(url);
+    loginPage.validatePage();
+    //When Digito el usuario incorrecto y la contrasena correcta
+    user = faker.internet.email();
+    loginPage.login(user, password);
+    //Then Valido el mensaje de error
+    loginPage.validateErrorMessageUser();
+  });
 });

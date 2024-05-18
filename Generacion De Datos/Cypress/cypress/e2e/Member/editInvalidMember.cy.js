@@ -7,7 +7,7 @@ const { memberDelete } = require("../../utilities/member/deleteMenber.cy");
 
 // Parametrical variables
 var url, user, password;
-var name, email, note;
+var name, email, note, invalidEmail;
 var name1, email1, note1;
 
 describe("Scenario: Editar un Member Invalido", () => {
@@ -27,6 +27,10 @@ describe("Scenario: Editar un Member Invalido", () => {
       name = data.name;
       email = data.email;
       note = data.note;
+      invalidEmail = data.invalidEmail;
+      name1 = data.name1;
+      email1 = data.email1;
+      note1 = data.note1;
     });
   });
 
@@ -46,18 +50,18 @@ describe("Scenario: Editar un Member Invalido", () => {
     memberCreate.validate(name);
     //When Edito el miembro creado con "<memberName1>", "<memberEmail1>", "<memberNote1>"
     memberEdit.visit();
-    memberEdit.edit(name1, email1, note1);
+    memberEdit.edit(name, name1, invalidEmail, note1);
     //Then valido el error al editar el Member
-    memberEdit.validateError(name);
+    memberEdit.validateError();
     memberEdit.visit();
     memberEdit.acceptChanges();
     //And Elimino el Member creado
     memberDelete.visit();
-    memberDelete.delete();
+    memberDelete.delete(name);
     memberDelete.validate();
   });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
     //And Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
     memberCreate.visit();
     name = faker.name.firstName() + " " + faker.name.lastName();
@@ -71,16 +75,40 @@ describe("Scenario: Editar un Member Invalido", () => {
     name1 = faker.name.firstName() + " " + faker.name.lastName();
     email1 = faker.lorem.word();
     note1 = faker.lorem.paragraph();
-    memberEdit.edit(name1, email1, note1);
+    memberEdit.edit(name, name1, email1, note1);
     //Then valido el error al editar el Member
-    memberEdit.validateError(name);
+    memberEdit.validateError();
     memberEdit.visit();
     memberEdit.acceptChanges();
     //And Elimino el Member creado
     memberDelete.visit();
-    memberDelete.delete();
+    memberDelete.delete(name);
     memberDelete.validate();
   });
 
-  it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
+    //And Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
+    memberCreate.visit();
+    name = faker.name.firstName() + " " + faker.name.lastName();
+    email = faker.internet.email();
+    note = faker.lorem.paragraph();
+    memberCreate.create(name, email, note);
+    memberCreate.visit();
+    memberCreate.validate(name);
+    //When Edito el miembro creado con "<memberName1>", "<memberEmail1>", "<memberNote1>"
+    memberEdit.visit();
+    name1 = faker.name.firstName() + " " + faker.name.lastName();
+    email1 = faker.lorem.word();
+    note1 = faker.lorem.paragraph();
+    memberEdit.edit(name, name1, email1, note1);
+    //Then valido el error al editar el Member
+    memberEdit.validateError();
+    memberEdit.visit();
+    memberEdit.acceptChanges();
+    //And Elimino el Member creado
+    memberDelete.visit();
+    memberDelete.delete(name);
+    memberDelete.validate();
+  });
 });

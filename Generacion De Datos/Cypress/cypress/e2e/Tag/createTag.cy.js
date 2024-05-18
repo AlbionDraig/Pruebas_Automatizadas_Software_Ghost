@@ -51,7 +51,8 @@ describe("Scenario: Crear un Tag", () => {
     tagDelete.validateDeleted(tagName);
   });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
+    faker.seed(123)
     //When Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
     tagCreate.visit();
     tagName = faker.commerce.productName();
@@ -69,5 +70,21 @@ describe("Scenario: Crear un Tag", () => {
     tagDelete.validateDeleted(tagName);
   });
 
-  it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    //When Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
+    tagCreate.visit();
+    tagName = faker.commerce.productName();
+    tagColor = faker.internet.color().replace(/#/g, "");
+    tagDescription = faker.lorem.sentence();
+    tagCreate.create(tagName, tagColor, tagDescription);
+    tagCreate.visit();
+    //Then valido el tag "<tagName>" creado
+    tagCreate.validate(tagName);
+    //And Elimino el tag creado
+    tagDelete.visit();
+    tagDelete.clickOn(tagName);
+    tagDelete.delete();
+    tagDelete.confirm();
+    tagDelete.validateDeleted(tagName);
+  });
 });

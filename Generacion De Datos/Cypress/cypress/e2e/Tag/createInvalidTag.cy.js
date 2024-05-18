@@ -22,7 +22,7 @@ describe("Scenario: Crear un Tag invalido", () => {
     // Obtener informacion del tag
     cy.fixture("tag").then((tagInfo) => {
       tagName = tagInfo.name;
-      tagColor = tagInfo.color;
+      tagColor = tagInfo.invalidColor;
       tagDescription = tagInfo.description;
     });
   });
@@ -43,7 +43,7 @@ describe("Scenario: Crear un Tag invalido", () => {
     tagCreate.validateError();
   });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
     //When Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>" con el color invalido
     tagCreate.visit();
     tagName = faker.commerce.productName();
@@ -54,5 +54,15 @@ describe("Scenario: Crear un Tag invalido", () => {
     tagCreate.validateError();
   });
 
-  it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
+    //When Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>" con el color invalido
+    tagCreate.visit();
+    tagName = faker.commerce.productName();
+    tagColor = faker.internet.color();
+    tagDescription = faker.lorem.sentence();
+    tagCreate.create(tagName, tagColor, tagDescription);
+    //Then valido el error al crear el tag
+    tagCreate.validateError();
+  });
 });

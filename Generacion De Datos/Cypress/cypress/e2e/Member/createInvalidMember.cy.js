@@ -6,7 +6,7 @@ const { memberDelete } = require("../../utilities/member/deleteMenber.cy");
 
 // Parametrical variables
 var url, user, password;
-var name, email, note;
+var name, email, note, invalidEmail;
 
 describe("Scenario: Crear un Member invalido", () => {
   before(() => {
@@ -25,6 +25,7 @@ describe("Scenario: Crear un Member invalido", () => {
       name = data.name;
       email = data.email;
       note = data.note;
+      invalidEmail = data.invalidEmail;
     });
   });
 
@@ -39,12 +40,12 @@ describe("Scenario: Crear un Member invalido", () => {
   it("Pool de Datos A-priori", () => {
     //When Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
     memberCreate.visit();
-    memberCreate.create(name, email, note);
+    memberCreate.create(name, invalidEmail, note);
     //Then valido el error al crear el Member
     memberCreate.validateError();
   });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
     //When Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
     memberCreate.visit();
     name = faker.name.firstName() + " " + faker.name.lastName();
@@ -55,5 +56,15 @@ describe("Scenario: Crear un Member invalido", () => {
     memberCreate.validateError();
   });
 
-  it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
+    //When Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
+    memberCreate.visit();
+    name = faker.name.firstName() + " " + faker.name.lastName();
+    email = faker.lorem.word();
+    note = faker.lorem.paragraph();
+    memberCreate.create(name, email, note);
+    //Then valido el error al crear el Member
+    memberCreate.validateError();
+  });
 });

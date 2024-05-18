@@ -17,13 +17,6 @@ describe("Scenario: Ingresar una contrasena invalida", () => {
       password = credentials.password;
       invalidPassword = credentials.invalidPassword;
     });
-    // Obtener informacion
-    cy.fixture("page").then((data) => {
-      tittle = data.tittle;
-      content = data.content;
-      tittle2 = data.tittle2;
-      content2 = data.content2;
-    });
   });
 
   it("Ingresar con usuario valido para evitar timeout", () => {
@@ -37,12 +30,12 @@ describe("Scenario: Ingresar una contrasena invalida", () => {
     loginPage.visit(url);
     loginPage.validatePage();
     //When Digito el usuario correcto y la contrasena incorrecta
-    loginPage.login(user, password);
+    loginPage.login(user, invalidPassword);
     //Then Valido el mensaje de error
     loginPage.validateErrorMessagePassword();
   });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
     //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
     loginPage.visit(url);
     loginPage.validatePage();
@@ -53,5 +46,15 @@ describe("Scenario: Ingresar una contrasena invalida", () => {
     loginPage.validateErrorMessagePassword();
   });
 
-  it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
+    //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
+    loginPage.visit(url);
+    loginPage.validatePage();
+    //When Digito el usuario correcto y la contrasena incorrecta
+    password = faker.internet.password();
+    loginPage.login(user, password);
+    //Then Valido el mensaje de error
+    loginPage.validateErrorMessagePassword();
+  });
 });

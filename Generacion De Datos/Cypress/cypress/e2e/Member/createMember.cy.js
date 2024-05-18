@@ -40,6 +40,23 @@ describe("Scenario: Crear un Member", () => {
     //When Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
     memberCreate.visit();
     memberCreate.create(name, email, note);
+    memberCreate.visit();
+    //Then Valido que se haya creado el Member "<memberName>"
+    memberCreate.validate(name);
+    //And Elimino el Member creado
+    memberDelete.visit();
+    memberDelete.delete();
+    memberDelete.validate();
+  });
+
+  it("Escenario Aleatorio", () => {
+    //When Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
+    memberCreate.visit();
+    name = faker.name.firstName() + " " + faker.name.lastName();
+    email = faker.internet.email();
+    note = faker.lorem.paragraph();
+    memberCreate.create(name, email, note);
+    memberCreate.visit();
     //Then Valido que se haya creado el Member "<memberName>"
     memberCreate.validate(name);
     //And Elimino el Member creado
@@ -49,12 +66,14 @@ describe("Scenario: Crear un Member", () => {
   });
 
   it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
     //When Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
     memberCreate.visit();
     name = faker.name.firstName() + " " + faker.name.lastName();
     email = faker.internet.email();
     note = faker.lorem.paragraph();
     memberCreate.create(name, email, note);
+    memberCreate.visit();
     //Then Valido que se haya creado el Member "<memberName>"
     memberCreate.validate(name);
     //And Elimino el Member creado
@@ -62,6 +81,4 @@ describe("Scenario: Crear un Member", () => {
     memberDelete.delete();
     memberDelete.validate();
   });
-
-  it("Escenario Aleatorio", () => {});
 });

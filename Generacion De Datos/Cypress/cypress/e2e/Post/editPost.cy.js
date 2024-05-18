@@ -50,7 +50,7 @@ describe("Scenario: Editar una post", () => {
     deletePost.delete(title2);
   });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
     //and Creo un nuevo post con "<tittle>", "<content>"
     postCreate.visit();
     title = faker.lorem.sentence();
@@ -66,5 +66,20 @@ describe("Scenario: Editar una post", () => {
     deletePost.delete(title2);
   });
 
-  it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
+    //and Creo un nuevo post con "<tittle>", "<content>"
+    postCreate.visit();
+    title = faker.lorem.sentence();
+    content = faker.lorem.paragraphs(3);
+    postCreate.create(title, content);
+    //When Edito una post con "<tittle>", "<tittle2>", "<content2>"
+    title2 = faker.lorem.sentence();
+    content2 = faker.lorem.paragraphs(3);
+    casePostEdit.editarPost(title, title2, content2);
+    // Then Valido que se haya editado la post "<tittle2>"
+    casePostEdit.validate(title2);
+    // And Elimino la Pagina con "<tittle2>"
+    deletePost.delete(title2);
+  });
 });

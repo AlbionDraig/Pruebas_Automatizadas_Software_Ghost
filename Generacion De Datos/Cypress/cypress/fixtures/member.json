@@ -5,5 +5,7 @@
 
 	"name1": "Mikasa",
   "email1": "atenea@dio.na",
-  "note1": "Another world"
+  "note1": "Another world",
+
+  "invalidEmail": "herculesdemila"
 }
