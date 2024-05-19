@@ -10,7 +10,7 @@ var tittle, content = "";
 let titleFaker, descriptionFaker;
 
 describe('Scenario: Eliminar una página', () => {
-    beforeEach(() => {
+    before(() => {
       Cypress.on('uncaught:exception', (err, runnable) => {
         console.error('Uncaught exception', err);
         return false;
@@ -29,13 +29,14 @@ describe('Scenario: Eliminar una página', () => {
       titleFaker = faker.person.jobTitle();
       descriptionFaker = faker.lorem.paragraph();
     });
+    beforeEach(() => {
+      //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
+      loginPage.visit(url);
+      loginPage.validatePage();
+      loginPage.login(user, password);
+      loginPage.validateError();
+    });
     it("Pool de Datos A-priori", () => {
-       //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
-       loginPage.visit(url);
-       loginPage.validatePage();
-       loginPage.login(user,password);
-       loginPage.validateError();
-   
        //And Creo un nuevo Page con "<tittle>", "<content>"
        casePageCreate.visit()
        casePageCreate.create(tittle,content)
@@ -51,11 +52,6 @@ describe('Scenario: Eliminar una página', () => {
        logout.validateError()
     });
     it('Pool de Datos (Pseudo) Aleatorio Dinámico', () => {
-        //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
-        loginPage.visit(url);
-        loginPage.validatePage();
-        loginPage.login(user,password);
-        loginPage.validateError();
     
         //And Creo un nuevo Page con "<tittle>", "<content>"
         casePageCreate.visit()
@@ -70,5 +66,18 @@ describe('Scenario: Eliminar una página', () => {
         //And Cierro sesion en "<url>"
         logout.visit(url)
         logout.validateError()
+      });
+      it('Escenario Aleatorio', () => {
+        titleFaker = faker.person.jobTitle();
+        descriptionFaker = faker.lorem.paragraph();    
+        //And Creo un nuevo Page con "<tittle>", "<content>"
+        casePageCreate.visit()
+        casePageCreate.create(titleFaker,descriptionFaker)
+    
+        // when Delete page con "<tittle>"
+        casePageDelete.delete(titleFaker)
+        
+        // Then Validar la pagina eliminada con "<tittle>"
+        casePageDelete.validate(titleFaker)
       });
     })

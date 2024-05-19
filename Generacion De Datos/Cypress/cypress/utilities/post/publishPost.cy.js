@@ -14,6 +14,10 @@ export class PostPublish {
     this.publishFinalButton = "button[data-test-button='confirm-publish']";
     this.closeButton = "button[data-test-button='close-publish-flow']";
     this.goBack = "a[data-test-link='posts']";
+    this.items = "a.gh-list-data.gh-post-list-title";
+    this.continuePublish=".gh-publish-cta button[data-test-button='continue']";
+    this.confirmarUnpublish ="button.gh-revert-to-draft[data-test-button='revert-to-draft']";
+    this.confirmarPublish="button[data-test-button='confirm-publish']";
   }
 
   visit() {
@@ -44,5 +48,52 @@ export class PostPublish {
   validate(title) {
     cy.get(this.labelsTitle).contains(title).should("exist");
   }
+
+  publishPost(){
+    cy.get(this.publishButton).click();
+    cy.wait(1000);
+    cy.get(this.continuePublish).click();
+    cy.wait(1000);
+    cy.get(this.confirmarPublish).click();
+    cy.wait(1000);
+    cy.get('a.gh-back-to-editor[href="#/dashboard/"]')
+    .should('be.visible')
+    .click();
+  }
+
+  intoPost(tittle){
+    cy.get(this.items).contains(tittle).click();
+}
+
+previewPost(){
+  cy.contains('button', 'Preview')
+    .should('be.visible') // Verifica que el botón de vista previa esté visible
+    .click();
+}
+
+backPreview(){
+  cy.contains('button', 'Editor')
+    .should('be.visible') // Verifica que el botón de vista previa esté visible
+    .click();
+  cy.wait(1000);
+  cy.get(this.goBack).click();
+  cy.wait(1000);
+}
+  
+
+
+unpublishPost(){
+  cy.contains('button', 'Unpublish')
+  .should('be.visible') // Verifica que el botón de vista previa esté visible
+  .click();
+  cy.wait(1000);
+  cy.get(this.confirmarUnpublish).should('be.visible').click();
+  cy.wait(1000);
+  cy.get(this.goBack).click();
+  cy.wait(1000);
+
+}
+
+  
 }
 export const postPublish = new PostPublish();

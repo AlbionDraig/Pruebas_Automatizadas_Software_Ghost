@@ -2,24 +2,19 @@ const { loginPage } = require("../../utilities/login/login.cy");
 const { logout } = require("../../utilities/login/logout.cy");
 const { tagCreate } = require("../../utilities/tag/createTag.cy");
 const { tagDelete } = require("../../utilities/tag/deleteTag.cy");
-const { casePageCreate } = require("../../utilities/page/createPage.cy");
-const { casePageDelete } = require("../../utilities/page/deletePage.cy");
+const { postCreate } = require("../../utilities/post/createPost.cy");
+const { deletePost } = require("../../utilities/post/deletePost.cy");
 const { addTag } = require("../../utilities/addTag/addTag.cy");
 import { faker } from "@faker-js/faker";
 
 // Parametrical variables
-var url,
-  user,
-  password = "";
-var tagName,
-  tagColor,
-  tagDescription = "";
-var tittle,
-  content= "";
+var url, user, password;
+var tagName, tagColor, tagDescription;
+var title, textPost;
 
-  let tagNameFaker, tagColorFaker, tagDescriptionFaker,titleFaker, descriptionFaker;
+let tagNameFaker, tagColorFaker, tagDescriptionFaker,titleFaker, descriptionFaker;
 
-describe("Scenario: Agregar un tag a una pagina creada", () => {
+describe("Scenario: Editar un Tag", () => {
   before(() => {
     Cypress.on("uncaught:exception", (err, runnable) => {
       console.error("Uncaught exception", err);
@@ -37,10 +32,10 @@ describe("Scenario: Agregar un tag a una pagina creada", () => {
       tagColor = tagInfo.color;
       tagDescription = tagInfo.description;
     });
-    // Obtener informacion del member
-    cy.fixture("page").then((data) => {
-      tittle = data.tittle;
-      content = data.content;
+    // Obtener informacion del post
+    cy.fixture("post").then((data) => {
+      title = data.title;
+      textPost = data.textPost;
     });
     titleFaker = faker.person.jobTitle();
     descriptionFaker = faker.lorem.paragraph();
@@ -56,20 +51,21 @@ describe("Scenario: Agregar un tag a una pagina creada", () => {
     loginPage.validateError();
   });
   it("Pool de Datos A-priori", () => {
-    
+
     //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
     tagCreate.visit();
     tagCreate.create(tagName, tagColor, tagDescription);
 
-    //And Creo un nuevo page con "<tittle>", "<content>"
-    casePageCreate.visit();
-    casePageCreate.create(tittle, content);
+    //And Creo un nuevo Post
+    postCreate.visit();
+    postCreate.create(title, textPost);
+    postCreate.validate(title);
 
-    //When agrego el tag a la pagina con <tittle>,<tittle>
-    addTag.visitPage();
-    addTag.addTag(tittle, tagName);
+    //When agrego el tag al post con <title>,<title>
+    addTag.visitPosts();
+    addTag.addTag(title, tagName);
 
-    //Then Validar tag en la pagina <tagName>
+    //Then Validar tag en el post <tagName>
     addTag.validate(tagName);
 
     //And Elimino el tag creado con <tagName>
@@ -78,31 +74,30 @@ describe("Scenario: Agregar un tag a una pagina creada", () => {
     tagDelete.delete();
     tagDelete.confirm();
 
-    // And Elimino la pagina con <tittle>
-    casePageDelete.visit();
-    casePageDelete.delete(tittle);
+    //And Elimino el Post creado
+    deletePost.visit();
+    deletePost.delete(title);
 
     //And Cierro sesion en "<url>"
     logout.visit(url);
     logout.validateError();
-
   });
   it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
-    //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
- 
+
     //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
     tagCreate.visit();
     tagCreate.create(tagNameFaker, tagColorFaker, tagDescriptionFaker);
 
-    //And Creo un nuevo page con "<tittle>", "<content>"
-    casePageCreate.visit();
-    casePageCreate.create(titleFaker, descriptionFaker);
+    //And Creo un nuevo Post
+    postCreate.visit();
+    postCreate.create(titleFaker, descriptionFaker);
+    postCreate.validate(titleFaker);
 
-    //When agrego el tag a la pagina con <tittle>,<tittle>
-    addTag.visitPage();
+    //When agrego el tag al post con <title>,<title>
+    addTag.visitPosts();
     addTag.addTag(titleFaker, tagNameFaker);
 
-    //Then Validar tag en la pagina <tagName>
+    //Then Validar tag en el post <tagName>
     addTag.validate(tagNameFaker);
 
     //And Elimino el tag creado con <tagName>
@@ -111,32 +106,34 @@ describe("Scenario: Agregar un tag a una pagina creada", () => {
     tagDelete.delete();
     tagDelete.confirm();
 
-    // And Elimino la pagina con <tittle>
-    casePageDelete.visit();
-    casePageDelete.delete(titleFaker);
+    //And Elimino el Post creado
+    deletePost.visit();
+    deletePost.delete(titleFaker);
 
     //And Cierro sesion en "<url>"
     logout.visit(url);
     logout.validateError();
   });
   it("Escenario Aleatorio", () => {
-    //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
- 
-    //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
+    titleFaker = faker.person.jobTitle();
+    descriptionFaker = faker.lorem.paragraph();
     tagNameFaker = faker.lorem.word();
+    tagColorFaker = faker.internet.color().substring(1);
     tagDescriptionFaker = faker.lorem.sentence();
+    //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
     tagCreate.visit();
     tagCreate.create(tagNameFaker, tagColorFaker, tagDescriptionFaker);
 
-    //And Creo un nuevo page con "<tittle>", "<content>"
-    casePageCreate.visit();
-    casePageCreate.create(titleFaker, descriptionFaker);
+    //And Creo un nuevo Post
+    postCreate.visit();
+    postCreate.create(titleFaker, descriptionFaker);
+    postCreate.validate(titleFaker);
 
-    //When agrego el tag a la pagina con <tittle>,<tittle>
-    addTag.visitPage();
+    //When agrego el tag al post con <title>,<title>
+    addTag.visitPosts();
     addTag.addTag(titleFaker, tagNameFaker);
 
-    //Then Validar tag en la pagina <tagName>
+    //Then Validar tag en el post <tagName>
     addTag.validate(tagNameFaker);
 
     //And Elimino el tag creado con <tagName>
@@ -145,8 +142,8 @@ describe("Scenario: Agregar un tag a una pagina creada", () => {
     tagDelete.delete();
     tagDelete.confirm();
 
-    // And Elimino la pagina con <tittle>
-    casePageDelete.visit();
-    casePageDelete.delete(titleFaker);
+    //And Elimino el Post creado
+    deletePost.visit();
+    deletePost.delete(titleFaker);
   });
 });

@@ -9,5 +9,6 @@
 
   "tagDelete": "DeleteTag",
   "colorDelete": "00cca3",
-  "descriptionDelete": "Tag para ser Eliminado"
+  "descriptionDelete": "Tag para ser Eliminado",
+  "invalidColor": "XC#$%"
 }

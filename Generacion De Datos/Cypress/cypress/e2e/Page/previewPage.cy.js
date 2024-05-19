@@ -1,4 +1,5 @@
 const { loginPage } = require("../../utilities/login/login.cy");
+const { logout } = require("../../utilities/login/logout.cy");
 const { casePageCreate } = require("../../utilities/page/createPage.cy");
 const { casePageDelete } = require("../../utilities/page/deletePage.cy");
 import { faker } from "@faker-js/faker";
@@ -42,9 +43,28 @@ describe("Scenario: preview de una página creada", () => {
     casePageCreate.validate(title);
     //And elimino el page creado "<title>"
     casePageDelete.delete(title);
+    //And Cierro sesion en "<url>"
+    logout.visit(url)
+    logout.validateError()
 
   });
   it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    //When Creo un nuevo Page con "<title>", "<content>"
+    casePageCreate.visit();
+
+    casePageCreate.previewPage(titleFaker, descriptionFaker);
+    //Then Valido que se haya creado la pagina con "<title>"
+    casePageCreate.validate(titleFaker);
+    //And elimino el page creado "<title>"
+    casePageDelete.delete(titleFaker);
+    //And Cierro sesion en "<url>"
+    logout.visit(url)
+    logout.validateError()
+  });
+
+  it("Escenario Aleatorio", () => {
+    titleFaker = faker.person.jobTitle();
+    descriptionFaker = faker.lorem.paragraph();
     //When Creo un nuevo Page con "<title>", "<content>"
     casePageCreate.visit();
 

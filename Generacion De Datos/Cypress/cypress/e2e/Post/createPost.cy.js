@@ -23,7 +23,7 @@ describe("Scenario: Crear un nuevo Post", () => {
     // Obtener informacion del member
     cy.fixture("post").then((data) => {
       title = data.title;
-      content = data.content;
+      content = data.textPost;
     });
   });
 
@@ -35,9 +35,17 @@ describe("Scenario: Crear un nuevo Post", () => {
     loginPage.validateError();
   });
 
-  //it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //When Creo un nuevo Post
+    postCreate.visit();
+    postCreate.create(title, content);
+    //Then Valido que se haya creado el Post "<memberName>"
+    postCreate.validate(title);
+    //And Elimino el Post creado
+    deletePost.delete(title);
+  });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
     //When Creo un nuevo Post
     postCreate.visit();
     title = faker.lorem.sentence();
@@ -49,5 +57,16 @@ describe("Scenario: Crear un nuevo Post", () => {
     deletePost.delete(title);
   });
 
-  //it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
+    //When Creo un nuevo Post
+    postCreate.visit();
+    title = faker.lorem.sentence();
+    content = faker.lorem.paragraphs(3);
+    postCreate.create(title, content);
+    //Then Valido que se haya creado el Post "<memberName>"
+    postCreate.validate(title);
+    //And Elimino el Post creado
+    deletePost.delete(title);
+  });
 });

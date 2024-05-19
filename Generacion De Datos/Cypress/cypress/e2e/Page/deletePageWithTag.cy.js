@@ -20,7 +20,7 @@ var tittle,
 
 
   describe("Scenario: Agregar un tag a una pagina creada", () => {
-    beforeEach(() => {
+    before(() => {
       Cypress.on("uncaught:exception", (err, runnable) => {
         console.error("Uncaught exception", err);
         return false;
@@ -48,12 +48,14 @@ var tittle,
       tagColorFaker = faker.internet.color().substring(1);
       tagDescriptionFaker = faker.lorem.sentence();
     });
+    beforeEach(() => {
+      //Given Ingreso al portal de Ghost "<url>" con "<user>", "<password>"
+      loginPage.visit(url);
+      loginPage.validatePage();
+      loginPage.login(user, password);
+      loginPage.validateError();
+    });
     it("Pool de Datos A-priori", () => {
-        //Given 
-        loginPage.visit(url);
-        loginPage.validatePage();
-        loginPage.login(user, password);
-        loginPage.validateError();
     
         //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
         tagCreate.visit();
@@ -72,11 +74,6 @@ var tittle,
         casePageDelete.delete(tittle);
       });
       it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
-        //Given 
-        loginPage.visit(url);
-        loginPage.validatePage();
-        loginPage.login(user, password);
-        loginPage.validateError();
     
         //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
         tagCreate.visit();
@@ -98,9 +95,34 @@ var tittle,
     
         // Then Elimino la pagina con tag incluido <tittle>
         casePageDelete.visit();
-        casePageDelete.delete(titleFaker);
+        casePageDelete.delete(titleFaker);        
+      });
+      it("Escenario Aleatorio", () => {
+
+        //And Elimino tag creado anteriormente <tagName>
+        tagDelete.visit();
+        tagDelete.clickOn(tagNameFaker);
+        tagDelete.delete();
+        tagDelete.confirm();
+    
+        //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
+        tagNameFaker = faker.lorem.word();
+        tagCreate.visit();
+        tagCreate.create(tagNameFaker, tagColorFaker, tagDescriptionFaker);
 
         
+    
+        //And Creo un nuevo page con "<tittle>", "<content>"
+        casePageCreate.visit();
+        casePageCreate.create(titleFaker, descriptionFaker);
+    
+        //When agrego el tag a la pagina con <tittle>,<tittle>
+        addTag.visitPage();
+        addTag.addTag(titleFaker, tagNameFaker);
+    
+        // Then Elimino la pagina con tag incluido <tittle>
+        casePageDelete.visit();
+        casePageDelete.delete(titleFaker);        
       });
 
 });

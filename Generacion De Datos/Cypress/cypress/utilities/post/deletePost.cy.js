@@ -5,6 +5,7 @@ export class PostDelete {
     this.settingsBtn = "button[title='Settings']";
     this.deleteBtn = "button.gh-btn.gh-btn-outline.gh-btn-icon.gh-btn-fullwidth";
     this.confirm = "button.gh-btn.gh-btn-red.gh-btn-icon.ember-view";
+    this.tagToValidate = "section > section";
   }
 
   visit() {
@@ -17,6 +18,10 @@ export class PostDelete {
     cy.get(this.deleteBtn).click();
     cy.get(this.confirm).click();
     cy.wait(5000);
+  }
+
+  validate(tittle) {
+    cy.get(this.tagToValidate).contains(tittle).should("not.exist");
   }
 }
 

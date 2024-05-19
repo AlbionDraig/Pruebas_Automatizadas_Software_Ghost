@@ -25,8 +25,11 @@ describe("Scenario: Editar un Tag invalido", () => {
     // Obtener informacion del tag
     cy.fixture("tag").then((tagInfo) => {
       tagName = tagInfo.name;
+      tagName1 = tagInfo.name1;
       tagColor = tagInfo.color;
+      tagColor1 = tagInfo.color1;
       tagDescription = tagInfo.description;
+      tagDescription1 = tagInfo.description1;
     });
   });
 
@@ -38,9 +41,26 @@ describe("Scenario: Editar un Tag invalido", () => {
     loginPage.validateError();
   });
 
-  it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
+    tagCreate.visit();
+    tagCreate.create(tagName, tagColor, tagDescription);
+    tagCreate.visit();
+    //When Edito el Tag "<tagName>" con "<tagName1>", "<tagColor1>", "<tagDescription1>"
+    tagEdit.visit();
+    tagEdit.edit(tagName, tagName1, tagColor1, tagDescription1);
+    tagEdit.visit();
+    //Then Valido que se haya editado el tag "<tagName1>"
+    tagEdit.validate(tagName1);
+    //And Elimino el tag "<tagName1>" creado
+    tagDelete.visit();
+    tagDelete.clickOn(tagName1);
+    tagDelete.delete();
+    tagDelete.confirm();
+    tagDelete.validateDeleted(tagName1);
+  });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
     //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
     tagCreate.visit();
     tagName = faker.commerce.productName();
@@ -65,5 +85,29 @@ describe("Scenario: Editar un Tag invalido", () => {
     tagDelete.validateDeleted(tagName1);
   });
 
-  it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
+    //And Creo un nuevo Tag con "<tagName>", "<tagColor>", "<tagDescription>"
+    tagCreate.visit();
+    tagName = faker.commerce.productName();
+    tagColor = faker.internet.color().replace(/#/g, "");
+    tagDescription = faker.lorem.sentence();
+    tagCreate.create(tagName, tagColor, tagDescription);
+    tagCreate.visit();
+    //When Edito el Tag "<tagName>" con "<tagName1>", "<tagColor1>", "<tagDescription1>"
+    tagEdit.visit();
+    tagName1 = faker.commerce.productName();
+    tagColor1 = faker.internet.color().replace(/#/g, "");
+    tagDescription1 = faker.lorem.sentence();
+    tagEdit.edit(tagName, tagName1, tagColor1, tagDescription1);
+    tagEdit.visit();
+    //Then Valido que se haya editado el tag "<tagName1>"
+    tagEdit.validate(tagName1);
+    //And Elimino el tag "<tagName1>" creado
+    tagDelete.visit();
+    tagDelete.clickOn(tagName1);
+    tagDelete.delete();
+    tagDelete.confirm();
+    tagDelete.validateDeleted(tagName1);
+  });
 });

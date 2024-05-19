@@ -22,7 +22,7 @@ describe("Scenario: Crear new Page", () => {
     });
     // Obtener informacion del member
     cy.fixture("page").then((data) => {
-      title = data.title;
+      title = data.tittle;
       content = data.content;
     });
   });
@@ -35,9 +35,17 @@ describe("Scenario: Crear new Page", () => {
     loginPage.validateError();
   });
 
-  it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //When Creo un nuevo Page con "<title>", "<content>"
+    casePageCreate.visit();
+    casePageCreate.create(title, content);
+    //Then Valido que se haya creado la pagina con "<title>"
+    casePageCreate.validate(title);
+    //And elimino el page creado "<title>"
+    casePageDelete.delete(title);
+  });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
     //When Creo un nuevo Page con "<title>", "<content>"
     casePageCreate.visit();
     title = faker.lorem.sentence();
@@ -49,5 +57,16 @@ describe("Scenario: Crear new Page", () => {
     casePageDelete.delete(title);
   });
 
-  it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
+    //When Creo un nuevo Page con "<title>", "<content>"
+    casePageCreate.visit();
+    title = faker.lorem.sentence();
+    content = faker.lorem.paragraphs(3);
+    casePageCreate.create(title, content);
+    //Then Valido que se haya creado la pagina con "<title>"
+    casePageCreate.validate(title);
+    //And elimino el page creado "<title>"
+    casePageDelete.delete(title);
+  });
 });

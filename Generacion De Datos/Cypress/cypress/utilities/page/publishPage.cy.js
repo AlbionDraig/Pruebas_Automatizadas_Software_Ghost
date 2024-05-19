@@ -8,7 +8,7 @@ export class CasePublishPage {
       this.goBack = "a[data-test-link='pages']";
       this.confirmarPublish="button[data-test-button='confirm-publish']";
       this.continuePublish=".gh-publish-cta button[data-test-button='continue']";
-      this.confirmarUnpublish ="button.gh-revert-to-draft[data-test-button='revert-to-draft']"
+      this.confirmarUnpublish ="button.gh-revert-to-draft[data-test-button='revert-to-draft']";
     }
 
     visit() {
@@ -43,9 +43,10 @@ export class CasePublishPage {
         cy.contains('button', 'Unpublish')
         .should('be.visible') // Verifica que el botón de vista previa esté visible
         .click();
-
         cy.get(this.confirmarUnpublish).should('be.visible').click();
-
+        cy.wait(1000);
+        cy.get(this.goBack).click();
+        cy.wait(1000);
     }
 }
 export const casePublishPage = new CasePublishPage();

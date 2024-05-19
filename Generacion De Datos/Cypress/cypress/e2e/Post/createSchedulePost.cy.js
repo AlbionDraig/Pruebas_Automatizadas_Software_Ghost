@@ -38,9 +38,20 @@ describe("Scenario: Crear un nuevo Post Programado", () => {
     loginPage.validateError();
   });
 
-  //it("Pool de Datos A-priori", () => {});
+  it("Pool de Datos A-priori", () => {
+    //And Creo un nuevo Post
+    postCreate.visit();
+    postCreate.create(title, content);
+    //When creo un scheduled post
+    postPublish.create(title, date, time);
+    //Then Valido que se programado el post
+    postPublish.visitScheduled();
+    postPublish.validate(title);
+    //And Elimino el Post creado
+    deletePost.delete(title);
+  });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+  it("Escenario Aleatorio", () => {
     //And Creo un nuevo Post
     postCreate.visit();
     title = faker.lorem.sentence();
@@ -58,5 +69,22 @@ describe("Scenario: Crear un nuevo Post Programado", () => {
     deletePost.delete(title);
   });
 
-  //it("Escenario Aleatorio", () => {});
+  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+    faker.seed(123)
+    //And Creo un nuevo Post
+    postCreate.visit();
+    title = faker.lorem.sentence();
+    content = faker.lorem.paragraphs(3);
+    postCreate.create(title, content);
+    //When creo un scheduled post
+    rawDate = faker.date.future()
+    date = rawDate.toISOString().split('T')[0];
+    time = `${String(rawDate.getHours()).padStart(2, '0')}:${String(rawDate.getMinutes()).padStart(2, '0')}`;
+    postPublish.create(title, date, time);
+    //Then Valido que se programado el post
+    postPublish.visitScheduled();
+    postPublish.validate(title);
+    //And Elimino el Post creado
+    deletePost.delete(title);
+  });
 });

@@ -1,4 +1,5 @@
 const { loginPage } = require("../../utilities/login/login.cy");
+const { logout } = require("../../utilities/login/logout.cy");
 const { casePublishPage } = require("../../utilities/page/publishPage.cy");
 const { casePageDelete } = require("../../utilities/page/deletePage.cy");
 import { faker } from "@faker-js/faker";
@@ -36,30 +37,52 @@ describe("Scenario:Publicar página para luego ser eliminada", () => {
     });
     it("Pool de Datos A-priori", () => {
         
+      // And crear la pagina para ser publicada
         casePublishPage.visit();
-
         casePublishPage.create(title,content);
-
+        // When publish la pagina
         casePublishPage.publishPage();
-
+        //Then visita la pagina
         casePublishPage.visit();
-
+        //And Elimino la pagina
         casePageDelete.delete(title);
-
+        // And Valido la pagina
         casePageDelete.validate(title);
+        //And Cierro sesion en "<url>"
+        logout.visit(url);
+        logout.validateError();
     });
     it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
+        // And crear la pagina para ser publicada
+        casePublishPage.visit();
         
-        casePublishPage.visit();
-
+        
         casePublishPage.create(titleFaker,descriptionFaker);
-
+        // When publish la pagina
         casePublishPage.publishPage();
-
+        //Then visita la pagina
         casePublishPage.visit();
-
+        //And Elimino la pagina
         casePageDelete.delete(titleFaker);
-
+        // And Valido la pagina
         casePageDelete.validate(titleFaker);
-    });    
+        //And Cierro sesion en "<url>"
+        logout.visit(url);
+        logout.validateError();
+    });
+    it("Escenaro Aleatorio", () => {
+      // And crear la pagina para ser publicada
+      casePublishPage.visit();
+      titleFaker = faker.person.jobTitle();
+      descriptionFaker = faker.lorem.paragraph();
+      casePublishPage.create(titleFaker,descriptionFaker);
+      // When publish la pagina
+      casePublishPage.publishPage();
+      //Then visita la pagina
+      casePublishPage.visit();
+      //And Elimino la pagina
+      casePageDelete.delete(titleFaker);
+      // And Valido la pagina
+      casePageDelete.validate(titleFaker);
+  });     
 });

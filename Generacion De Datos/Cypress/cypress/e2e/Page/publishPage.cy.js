@@ -1,4 +1,5 @@
 const { loginPage } = require("../../utilities/login/login.cy");
+const { logout } = require("../../utilities/login/logout.cy");
 const { casePageCreate } = require("../../utilities/page/createPage.cy");
 import { faker } from "@faker-js/faker";
 
@@ -37,15 +38,27 @@ describe("Scenario: publish de una página creada", () => {
     it("Pool de Datos A-priori", () => {
         //When Creo un nuevo Page con "<title>", "<content>"
         casePageCreate.visit();
-    
+        //then publico la pagina
         casePageCreate.publishPage(title, content);
+        //And Cierro sesion en "<url>"
+       logout.visit(url)
+       logout.validateError()
     });
     it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
         //When Creo un nuevo Page con "<title>", "<content>"
         casePageCreate.visit();
-    
+        // Then publico la pagina
         casePageCreate.publishPage(titleFaker, descriptionFaker);
+        //And Cierro sesion en "<url>"
+       logout.visit(url)
+       logout.validateError()
     });
+    it("Escenario Aleatorio", () => {
+      //When Creo un nuevo Page con "<title>", "<content>"
+      casePageCreate.visit();
+      // Then publico la pagina
+      casePageCreate.publishPage(titleFaker, descriptionFaker);
+  });
 
 
 });

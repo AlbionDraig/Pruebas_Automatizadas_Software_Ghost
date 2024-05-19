@@ -16,6 +16,7 @@ export class PostCreate {
     cy.get(this.newButton).click();
     cy.get(this.titlePage).type(title);
     cy.get(this.contentPage).type(content);
+    cy.wait(5000)
     cy.get(this.goBack).click();
   }
 
