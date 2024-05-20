@@ -78,4 +78,8 @@ Desde los archivos `.\Pruebas E2E\Cypress\cypress\fixtures` se pueden modificar 
 - Cuando se manejan credenciales de acceso diferentes.
 
 # Notas de los desarrolladores:
-Se recomienda antes de cada ejecucion validar que en los apartados de `Posts`, `Pages` y `Tags` se encuentre un solo elemento y que `no contenga` ningun nombre de los que aparecen en los valores paramétricos; En el caso de `members` no debe haber `ninguno`.
+1. Las ejecuciones de los escenarios se realizaron usando la interfaz grafica de cypress con el navegador Electron V18.
+2. Se recomienda antes de cada ejecucion validar que en los apartados de `Posts`, `Pages` y `Tags` se encuentre un solo elemento y que `no contenga` ningun nombre de los que aparecen en los valores paramétricos; En el caso de `members` no debe haber `ninguno`.
+3. En ocasiones, se genera un fallo por realizar una gran cantidad de inicios de sesión por hora. Se recomienda validar si los fallos se deben a esta casuística. Recomendamos desplegar nuevamente Ghost para evitar el tiempo de espera que establece Ghost para volver a acceder.
+4. Algunos casos pueden fallar por la naturaleza dinámica de la información o del proceso, por lo que se recomienda ejecutar la prueba varias veces.
+5. La información utilizada en los escenarios con datos a-priori se encuentra en `Generacion De Datos\Cypress\cypress\fixtures`.
