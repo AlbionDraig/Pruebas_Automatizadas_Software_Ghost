@@ -3,6 +3,7 @@ const { faker } = require("@faker-js/faker");
 const { loginPage } = require("../../utilities/login/login.cy");
 const { memberCreate } = require("../../utilities/member/createMenber.cy");
 const { memberDelete } = require("../../utilities/member/deleteMenber.cy");
+const axios = require('axios');
 
 // Parametrical variables
 var url, user, password;
@@ -65,20 +66,25 @@ describe("Scenario: Crear un Member", () => {
     memberDelete.validate();
   });
 
-  it("Pool de Datos (Pseudo) Aleatorio Dinámico", () => {
-    faker.seed(123)
-    //When Creo un nuevo Member con "<memberName>", "<memberEmail>", "<memberNote>"
-    memberCreate.visit();
-    name = faker.name.firstName() + " " + faker.name.lastName();
-    email = faker.internet.email();
-    note = faker.lorem.paragraph();
-    memberCreate.create(name, email, note);
-    memberCreate.visit();
-    //Then Valido que se haya creado el Member "<memberName>"
-    memberCreate.validate(name);
-    //And Elimino el Member creado
-    memberDelete.visit();
-    memberDelete.delete();
-    memberDelete.validate();
-  });
+  it("Con el pool de datos de mockaroo", () => {
+    // Obtener datos de Mockaroo
+    
+    axios.get('https://my.api.mockaroo.com/information?key=3c537c40')
+      .then((response) => {
+        const mockData = response.data;
+        name = mockData.name;
+        email = mockData.email;
+        note = mockData.email;
+        memberCreate.visit();
+        memberCreate.create(name, email, note);
+        memberCreate.visit();
+        //Then Valido que se haya creado el Member "<memberName>"
+        memberCreate.validate(name);
+        //And Elimino el Member creado
+        memberDelete.visit();
+        memberDelete.delete();
+        memberDelete.validate();
+      });
+    });
+
 });
