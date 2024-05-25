@@ -1,0 +1,26 @@
+{
+    "tittle": "Crear mi primera pagina",
+    "content": "Se crea mi primera pagina",
+
+    "tittle2": "Se edita mi primera pagina",
+    "content2": "Se edita mi primera pagina",
+    
+    "tittlePusblish": "Se Crea una pagina para publicar",
+    "contentPublish": "La pagina creada es para ser publicada",
+
+    "tittleUnPusblish": "Se Crea una pagina para publicar y luego despublicar",
+    "contentUnPublish": "La pagina creada es para ser publicada y luego ser despublicada",
+
+    "tittleDeletePusblish": "Se Crea una pagina para publicar y luego ser eliminada",
+    "contentDeletePublish": "La pagina creada es para ser publicada y luego ser eliminada",
+
+    "TittleWithTag": "Se Crea una pagina para agregar Tag",
+    "contentTittleWithTag": "La pagina creada es para poder agregar un tag y luego ser elimanda con el tag incluido",
+    
+    "bigTittle":"Legacy Division Representative Direct Solutions Associate Corporate Response Administrator Internal Group Representative Lead Configuration Consultant Global Accountability Engineer National Marketing",
+    "contentBigTittle":"Legacy Division Representative Direct Solutions Associate Corporate Response Administrator Internal Group Representative Lead Configuration Consultant Global Accountability Engineer National Marketing",
+
+    "smallTittle": "XE",
+    "contentSmallTittle": "XE"
+
+}

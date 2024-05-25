@@ -1,4 +1,44 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
+const path = require('path');
+
+
+Before(function (scenario) {
+    scenarioFolder = path.join(__dirname, '..', 'screenshots', scenario.pickle.name.replace(/ /g, '_'));
+  
+    if (fs.existsSync(scenarioFolder)) {
+      clearFolder(scenarioFolder);
+    } else {
+      fs.mkdirSync(scenarioFolder, { recursive: true });
+    }
+  
+    stepCount = 0; 
+  });
+
+  // Función para tomar capturas de pantalla con nombre y ubicación personalizados
+async function takeScreenshot() {
+    stepCount++;
+  
+    const screenshotName = `step${stepCount}_screenshot.png`;
+    const screenshotPath = path.join(scenarioFolder, screenshotName);
+  
+    await browser.saveScreenshot(screenshotPath);
+    console.log(`Screenshot saved: ${screenshotPath}`);
+  }
+
+  // Función para eliminar el contenido de una carpeta
+function clearFolder(folderPath) {
+    const files = fs.readdirSync(folderPath);
+    for (const file of files) {
+      const filePath = path.join(folderPath, file);
+      fs.unlinkSync(filePath);
+    }
+  }
+
+  //Tomar screenshots
+When("I take screenshot", async function () {
+    browser = this.driver;
+    await takeScreenshot();
+  });
 
 Given('Ingreso al portal de Ghost {kraken-string} con {kraken-string}, {kraken-string}', async function (url, user, password) {
     await this.driver.url(`${url}/ghost/#/signout/`);
